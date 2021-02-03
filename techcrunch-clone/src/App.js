@@ -1,19 +1,15 @@
-
-import logo from "./logo.svg";
-import "./App.css";
+import { Home } from "./Pages/Homepage/Components/Home";
 import SideBar from "./Pages/SideBar/Components/SideBar";
-
-import './App.css';
 import Login from './Pages/Login/components/Login';
-
 
 function App() {
   return (
-    <div className="App">
+    <div>
 
       <SideBar />
 
       <Login/>
+    <Home />
 
     </div>
   );
