@@ -12,8 +12,13 @@ function Routes() {
       <Switch>
         <Route exact path="/login" render={(props) => <Login {...props} />} />
         <Route exact path="/" render={(props) => <Home {...props} />} />
-        <Route render={<h2>Page not found</h2>} />
+        <Route
+          render={() => (
+            <h2 style={{ textAlign: "center" }}>Page not found...</h2>
+          )}
+        />
       </Switch>
+      {/* Footer */}
     </>
   );
 }
