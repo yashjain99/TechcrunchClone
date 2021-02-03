@@ -1,7 +1,5 @@
- 
+  
 import SideBar from "./Pages/SideBar/Components/SideBar";
-
-import './App.css';
 import Login from './Pages/Login/components/Login';
 import TcList from "./Pages/TcList/component/TcList";
 
@@ -15,6 +13,7 @@ function App() {
       {/* <Login/> */}
       <TcList/>
 
+ 
     </div>
   );
 }

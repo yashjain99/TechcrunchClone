@@ -1,12 +1,16 @@
 import { applyMiddleware, combineReducers, compose, createStore } from "redux";
- 
 import thunk from "redux-thunk"
-import loginReducer from "../Pages/Login/redux/loginReducer";
 import tcReducer from "../Pages/TcList/redux/tcReducer";
- 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-const rootReducers=combineReducers({ login:loginReducer , tcList:tcReducer })
+import { homeReducer } from "../Pages/Homepage/Redux/homeReducer";
+import loginReducer from "../Pages/Login/Redux/loginReducer";
 
 
-export const store=createStore(rootReducers,composeEnhancers(applyMiddleware(thunk
-    )))
+const rootReducer = combineReducers({
+    home: homeReducer,
+
+    login: loginReducer, tcList: tcReducer
+})
+
+const createComposer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+export const store = createStore(rootReducer, createComposer(applyMiddleware(thunk)))

@@ -64,7 +64,7 @@ p {
     width:800px;
     height:50px;
     border: 1px solid #ddd;
-     margin-left: 350px;
+     margin-left: 450px;
      box-shadow: 0 0 0 0 rgb(0 0 0 / 20%);
      transition: box-shadow .15s linear,-webkit-box-shadow .15s linear;
 }
@@ -80,6 +80,7 @@ p {
     letter-spacing: -.5px;
     font-weight: 800;
     margin-bottom: 5px;
+    color:black;
   }
   h4{
     font-family: aktiv-grotesk,sans-serif;

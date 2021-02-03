@@ -42,7 +42,7 @@ const FilterForm = (props) => {
    }
   return (
     <div className={styles.investors_filter_form}>
-      <p style={{ color: "grey", fontSize: 15,marginLeft:"300px" }}>
+      <p style={{ color: "grey", fontSize: 15,marginLeft:"450px" }}>
         Filter by:{vertical && <span>{vertical}</span>}  {roundType && <span>,{roundType}</span>}  {location && <span>,{location}</span>}
         <button className={styles.investors_clear_button} onClick={handleReset}>
           <svg
@@ -60,7 +60,7 @@ const FilterForm = (props) => {
 
       <div className={styles.filter_form_vertical}>
         <div className={styles.event_filter_box}>
-          <h4 className={styles.event_title} style={{marginLeft:"-400px"}}>Vertical</h4>
+          <h4 className={styles.event_title} style={{marginLeft:"450px"}} >Vertical</h4>
           <div>
             <select value={vertical} onChange={e=>setVertical(e.target.value)}>
               <option value=""></option>
@@ -83,7 +83,7 @@ const FilterForm = (props) => {
 
         <div className={styles.filter_form_roundType}>
             <div  className={styles.event_filter_box}>
-                <h4 className={styles.event_title} style={{marginLeft:"140px"}}>Round Type</h4>
+                <h4 className={styles.event_title} style={{marginLeft:"450px"}}>Round Type</h4>
                 <div>
                     <select value={roundType} onChange={e=>setRoundType(e.target.value)}>
                         <option value=""></option>
@@ -96,7 +96,7 @@ const FilterForm = (props) => {
         </div>
         <div className={styles.filter_form_location}>
         <div  className={styles.event_filter_box}>
-                <h4 className={styles.event_title} style={{marginLeft:"-300px"}}>Location</h4>
+                <h4 className={styles.event_title} style={{marginLeft:"20px"}} >Location</h4>
                 <div>
                     <select value={location} onChange={e=>setLocation(e.target.value)}>
                         <option></option>
