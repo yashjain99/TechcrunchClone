@@ -1,23 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
+import { Routes } from './Routes/Routes';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <div style={{minWidth:"23%", height:"100vh",border:"1px solid black"}}>
+        sidebar
+      </div> */}
+      <Routes/>
     </div>
   );
 }
