@@ -39,7 +39,7 @@ const ColorButton = withStyles((theme) => ({
 const SignIn = (props) => {
   const classes = useStyles();
   const [email,setEmail]=useState("")
-  const userData=useSelector(state=>state.userData)
+  const userData=useSelector(state=>state.login.userData)
 
   const handleLogin=()=>{
     const checkUser=userData.find(item=>item.email==email)

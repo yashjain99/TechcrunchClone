@@ -10,7 +10,7 @@ const Login = (props) => {
     useEffect(()=>{
         dispatch(getUserSignup())
     })
-    const isSigned=useSelector(state=>state.isSigned)
+    const isSigned=useSelector(state=>state.login.isSigned)
     return (
         <div className = {styles.cont}>
             <div className={{...styles.login_body,...styles.property_content,...styles.body}}>
