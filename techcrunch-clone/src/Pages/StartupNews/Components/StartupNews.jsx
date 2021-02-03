@@ -59,7 +59,10 @@ export function StartupNews() {
                             {
                                 newsHeadlines.map((item) => {
                                     return (
-                                        <LargeNewsBlock key = { item.id } news = { item } />
+                                        <LargeNewsBlock 
+                                            key = { item.id } 
+                                            news = { item } 
+                                        />
                                     )
                                 })
                             }

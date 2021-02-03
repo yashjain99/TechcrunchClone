@@ -6,6 +6,7 @@ import {
     makeStyles,
     Divider
 } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
     container: {
@@ -42,8 +43,14 @@ const useStyles = makeStyles({
 export function LargeNewsBlock({ news }) {
     const classes = useStyles();
 
+    const history = useHistory();
+
+    const handleNewsRedirect = (id, title) => {
+        history.push(`/news/${title}`, id)
+    }
+
     return (
-        <Grid item container>
+        <Grid item container onClick = {() => handleNewsRedirect(news.id) }>
             <Grid item xl={8} lg={8} md={8} sm={12} xs={12}>
                 <hr />
             </Grid>
