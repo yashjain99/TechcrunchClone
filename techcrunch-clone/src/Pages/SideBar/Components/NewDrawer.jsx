@@ -20,7 +20,7 @@ import Button from "@material-ui/core/Button";
 import CloseIcon from "@material-ui/icons/Close";
 import { NavLink } from "react-router-dom";
 
-const drawerWidth = 340;
+const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
     flexShrink: 0,
   },
   drawerPaper: {
-    width: "290px",
+    width: drawerWidth,
   },
   drawerHeader: {
     display: "flex",
