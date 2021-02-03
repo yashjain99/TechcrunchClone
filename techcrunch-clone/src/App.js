@@ -8,11 +8,11 @@ function App() {
     <div>
 
       {/* <SideBar />
+      <Home /> */}
 
-<Home /> */}
     
-<Login/>
-    {/* <FooterPage></FooterPage> */}
+    <Login/>
+    {/* <FooterPage/> */}
 
     </div>
   );
