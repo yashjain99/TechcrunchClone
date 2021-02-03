@@ -3,7 +3,7 @@ import SignIn from './SignIn'
 import SignUp from './SignUp'
 import styles from "./login.module.css"
 import { useDispatch, useSelector } from 'react-redux'
-import { getUserSignup } from '../redux/action'
+import { getUserSignup } from '../Redux/action'
 
 const Login = (props) => {
     const dispatch=useDispatch()

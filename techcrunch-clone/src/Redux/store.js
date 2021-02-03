@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from "redux-thunk";
 import { homeReducer } from "../Pages/Homepage/Redux/homeReducer";
-import loginReducer from "../Pages/Login/redux/loginReducer";
+import loginReducer from "../Pages/Login/Redux/loginReducer";
 
 const rootReducer = combineReducers ({
     home: homeReducer,
