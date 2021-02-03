@@ -11,7 +11,7 @@ function App() {
       {/* <SideBar /> */}
 
       {/* <Login/> */}
-      <TcList/>
+      {/* <TcList/> */}
 
  
     </div>
