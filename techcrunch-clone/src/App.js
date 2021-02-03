@@ -1,19 +1,19 @@
-
-import logo from "./logo.svg";
-import "./App.css";
+ 
 import SideBar from "./Pages/SideBar/Components/SideBar";
 
 import './App.css';
 import Login from './Pages/Login/components/Login';
+import TcList from "./Pages/TcList/component/TcList";
 
 
 function App() {
   return (
     <div className="App">
 
-      <SideBar />
+      {/* <SideBar /> */}
 
-      <Login/>
+      {/* <Login/> */}
+      <TcList/>
 
     </div>
   );
