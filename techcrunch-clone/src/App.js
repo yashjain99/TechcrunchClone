@@ -1,9 +1,16 @@
 import { Home } from "./Pages/Homepage/Components/Home";
+import SideBar from "./Pages/SideBar/Components/SideBar";
+import Login from './Pages/Login/components/Login';
 
 function App() {
   return (
     <div>
-      <Home />
+
+      <SideBar />
+
+      <Login/>
+    <Home />
+
     </div>
   );
 }
