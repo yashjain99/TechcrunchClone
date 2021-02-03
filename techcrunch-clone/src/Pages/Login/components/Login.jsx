@@ -12,13 +12,15 @@ const Login = (props) => {
     })
     const isSigned=useSelector(state=>state.isSigned)
     return (
-        <div className={{...styles.login_body,...styles.property_content}}>
-            <div className={styles.login_box_container}>
+        <div className = {styles.cont}>
+            <div className={{...styles.login_body,...styles.property_content,...styles.body}}>
+                <div className={styles.login_box_container}>
+                    
+                    {isSigned?<SignIn/>:<SignUp/>}
+                </div>
+                <div className={styles.property_container}> 
                 
-                {isSigned?<SignIn/>:<SignUp/>}
-             </div>
-            <div className={styles.property_container}> 
-             
+                </div>
             </div>
         </div>
     )

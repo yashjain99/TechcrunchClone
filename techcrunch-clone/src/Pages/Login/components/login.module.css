@@ -1,6 +1,6 @@
-body {
-  /* background-color: #00a562; */
+.cont {
   background-image: url("../../../Images/Login.png");
+  background-color: linear-gradient(to right,#01a663,#03d206);
 
   background-attachment: fixed;
   background-size: cover;
