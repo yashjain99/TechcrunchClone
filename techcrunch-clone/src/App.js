@@ -1,18 +1,10 @@
-  
-import SideBar from "./Pages/SideBar/Components/SideBar";
-import Login from './Pages/Login/components/Login';
-import TcList from "./Pages/TcList/component/TcList";
-
+ 
+import { Routes } from './Routes/Routes';
 
 function App() {
   return (
-    <div className="App">
-
-      {/* <SideBar /> */}
-
-      {/* <Login/> */}
-      {/* <TcList/> */}
-
+    <div>
+      <Routes />
  
     </div>
   );
