@@ -1,16 +1,14 @@
-import React,{useState, useEffect} from  'react';
-import { Link } from 'react-router-dom';
-import {CardComponent} from './CardComponent'
-import {DialogBox} from './DialogBox'
-import {CircularProgress,Grid} from '@material-ui/core';
-import ModeCommentOutlinedIcon from '@material-ui/icons/ModeCommentOutlined';
-
-import { makeStyles } from '@material-ui/core/styles';
-import styled from 'styled-components'
+import React,{useEffect} from  'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { CommentBox } from './CommentBox';
 import {Content} from './Content'
-import { useDispatch, useSelector } from 'react-redux';
 import { getNewsData } from '../Redux/actions';
+import {getNewsHeadlines} from '../../Homepage/Redux/action'
+import {CardComponent} from './CardComponent'
+import {Grid} from '@material-ui/core';
+import ModeCommentOutlinedIcon from '@material-ui/icons/ModeCommentOutlined';
+import { makeStyles } from '@material-ui/core/styles';
+import styled from 'styled-components'
 
 const useStyles = makeStyles({
     CommentIcon:{
@@ -47,14 +45,22 @@ export const News = ({id = 1}) =>{
     //after merge get id from props
     const classes = useStyles()
     const dispatch = useDispatch();
-    const news = useSelector(state => state.news)
-    console.log(news);
-    // let cardData = news.filter(item => Number(item.id) !== Number(id))
-    //                     .filter((item,index) => index < 2)
+    const news = useSelector(state => state.news.news)
+    const AllNewsData = useSelector(state => state.home.newsHeadlines)
+    console.log(AllNewsData);
+    let cardId = 1
+    if(Number(id) <= 1 && Number(id) <19){
+        cardId = Number(id) + 1
+    }
+    console.log(cardId);
+    let cardData = AllNewsData.find(item => Number(item.id) === Number(cardId))
+                       
+    console.log(cardData);
     
     useEffect( ()=>{
         dispatch(getNewsData(id))
-       
+        
+       dispatch(getNewsHeadlines())
        
     },[])
     console.log(news);
@@ -82,8 +88,12 @@ export const News = ({id = 1}) =>{
                 <Content content={news.content}/>
             </div>
             <section>
-                <CardComponent/>
-                <CardComponent/>
+            {
+                cardData && 
+                        <CardComponent  cardData={cardData}/>
+                
+            }
+                {/* <CardComponent/> */}
             </section>
             <CommentBox data={news}/>
             </Grid>

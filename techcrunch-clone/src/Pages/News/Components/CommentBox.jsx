@@ -66,7 +66,7 @@ export const CommentBox = ({data}) =>{
     const handleCloseAnchorEl = () => {
       setAnchorEl(null);
     };
-    const auth = false;
+    const auth = true;
     const classes = useStyles()
 
     const handleClose = () =>{
@@ -113,6 +113,7 @@ export const CommentBox = ({data}) =>{
         console.log(afterEditComment);
         dispatch(editComment(data.id, afterEditComment))
         setOpenEditComment(false)
+        handleCloseAnchorEl()
     }
     const handleDeleteComment = (commentId) =>{
         console.log("delete commit func called");

@@ -1,13 +1,17 @@
-import './App.css';
-import { Routes } from './Routes/Routes';
+import { Home } from "./Pages/Homepage/Components/Home";
+import SideBar from "./Pages/SideBar/Components/SideBar";
+import Login from './Pages/Login/components/Login';
+import {News} from './Pages/News/Components/News'
 
 function App() {
   return (
-    <div className="App">
-      {/* <div style={{minWidth:"23%", height:"100vh",border:"1px solid black"}}>
-        sidebar
-      </div> */}
-      <Routes/>
+    <div>
+{/* 
+      <SideBar />
+
+      <Login/>
+    <Home /> */}
+<News />
     </div>
   );
 }

@@ -8,7 +8,9 @@ const useStyles = makeStyles(theme =>({
     width: "400px !important"
   },
   button:{
-    margin: "auto"
+    margin: "auto",
+    background: "#36C275"
+    
   }
    
 }))
@@ -35,7 +37,7 @@ export const EditCommentBox = ({open, handleChange, handleClose, handleEditComme
                         variant="outlined"/>
         </DialogContent>
         <DialogActions className={classes.button}>
-          <Button onClick={()=>handleEditComment(id)} color="primary" variant="contained" autoFocus>
+          <Button onClick={()=>handleEditComment(id)} className={classes.button}  variant="outlined" autoFocus>
             Edit
           </Button>
         </DialogActions>
