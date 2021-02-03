@@ -45,7 +45,7 @@ export function LargeNewsBlock({ news }) {
     return (
         <Grid item container>
             <Grid item xl={8} lg={8} md={8} sm={12} xs={12}>
-                <Divider />
+                <hr />
             </Grid>
             <Grid item container direction = "row" spacing = {4}  className = {classes.container} >
                 <Grid item xl={3} lg={3} md={3} sm={4} xs={11} >

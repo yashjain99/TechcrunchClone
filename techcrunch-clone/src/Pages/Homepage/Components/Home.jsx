@@ -8,7 +8,6 @@ import {
     Box,
     Grid,
     Typography,
-    Divider,
     makeStyles
 } from "@material-ui/core";
 import { Loader } from './Loader';
@@ -37,7 +36,6 @@ export function Home() {
     const history = useHistory();
 
     const classes = useStyles();
-    
     
     useEffect(() => {
         setTimeout(() => {
