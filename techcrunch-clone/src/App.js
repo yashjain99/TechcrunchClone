@@ -3,13 +3,15 @@ import "./App.css";
 import SideBar from "./Pages/SideBar/Components/SideBar";
 import EventsPage from "./Pages/Events/Components/EventsPage";
 
+import "./App.css";
+import Login from "./Pages/Login/components/Login";
+
 function App() {
   return (
     <div className="App">
       <SideBar />
-      <div style={{ marginLeft: "250px" }}>
-        <EventsPage />
-      </div>
+
+      <Login />
     </div>
   );
 }
