@@ -8,7 +8,7 @@ const initState={
 }
 
 const loginReducer = (state=initState,{type,payload}) => {
-    console.log(type,payload)
+    // console.log(type,payload)
     switch(type){
         case POST_USER_SIGNUP_REQUEST:
             return{
