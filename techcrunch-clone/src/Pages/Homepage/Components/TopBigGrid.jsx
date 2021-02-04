@@ -85,15 +85,15 @@ export function TopBigGrid({ newsOne, newsTwo, newsThree, newsFour, newsFive }) 
                 </Grid>
                 <Grid item>
                     <SmallNewsBlock news = { newsTwo } />
-                    <Divider />
+                    <hr />
                 </Grid>
                 <Grid item>
                     <SmallNewsBlock news = { newsThree } />
-                    <Divider />
+                    <hr />
                 </Grid>
                 <Grid item>
                     <SmallNewsBlock news = { newsFour } />
-                    <Divider />
+                    <hr />
                 </Grid>
                 <Grid item>
                     <SmallNewsBlock news = { newsFive } />
