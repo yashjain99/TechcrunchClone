@@ -7,6 +7,8 @@ import { Home } from "../Pages/Homepage/Components/Home";
 import { StartupNews } from "../Pages/StartupNews/Components/StartupNews";
 import { News } from "../Pages/News/Components/News";
 
+import EventsPage from "../Pages/Events/Components/EventsPage";
+
 function Routes() {
   return (
     <>
@@ -14,8 +16,17 @@ function Routes() {
       <Switch>
         <Route exact path="/" render={(props) => <Home {...props} />} />
         <Route exact path="/login" render={(props) => <Login {...props} />} />
-        <Route exact path="/startup-news" render={(props) => <StartupNews {...props} />} />
+        <Route
+          exact
+          path="/startup-news"
+          render={(props) => <StartupNews {...props} />}
+        />
         <Route exact path="/news/:id" render={(props) => <News {...props} />} />
+        <Route
+          exact
+          path="/events/1"
+          render={(props) => <EventsPage {...props} />}
+        />
         <Route
           render={() => (
             <h2 style={{ textAlign: "center" }}>Page not found...</h2>
