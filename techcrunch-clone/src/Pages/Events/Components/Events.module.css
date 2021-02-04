@@ -1,0 +1,39 @@
+.header {
+  color: white;
+  /* height: 600px; */
+  background-image: url("https://cdn.wallpapersafari.com/46/30/ObEGSN.jpg");
+  text-align: left;
+  margin-left: 15px;
+  font-weight: bolder;
+  padding: 20px;
+}
+.headertitle {
+  font-size: 100px;
+}
+.subHeader {
+  color: white;
+  /* font-size: 10px; */
+  display: flex;
+}
+.title {
+  font-size: 50px;
+}
+.body {
+  display: flex;
+}
+.tickets {
+  /* border: linear-gradient(to right, #01a663, #03d206); */
+  border: 2px solid limegreen;
+  margin: 20px;
+  padding: 15px;
+  max-width: 240px;
+  font-size: 18px;
+  text-align: initial;
+}
+.btn {
+  color: white;
+  background-color: lime;
+  height: 60px;
+  border-radius: 0%;
+  font-weight: bolder;
+}

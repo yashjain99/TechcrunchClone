@@ -1,5 +1,5 @@
 import { POST_USER_SIGNUP_FAILURE, POST_USER_SIGNUP_REQUEST, POST_USER_SIGNUP_SUCCESS,
-    GET_USER_SIGNUP_FAILURE, GET_USER_SIGNUP_REQUEST, GET_USER_SIGNUP_SUCCESS, SIGNIN } from "./actionType";
+    GET_USER_SIGNUP_FAILURE, GET_USER_SIGNUP_REQUEST, GET_USER_SIGNUP_SUCCESS, SIGNIN, SIGNUP, IS_AUTH, IS_OPEN, CLOSE_OPEN } from "./actionType";
 import axios from "axios"
 
 export const postUserSignupRequest=()=>({
@@ -48,4 +48,17 @@ export const getUserSignup=( )=>dispatch=> {
 
 export const signIn=()=>({
     type:SIGNIN
+})
+export const signUp=()=>({
+    type:SIGNUP
+})
+export const isAuth=(payload)=>({
+    type:IS_AUTH,
+    payload
+})
+export const isOpened=()=>({
+    type:IS_OPEN
+})
+export const notOpened=()=>({
+    type:CLOSE_OPEN
 })
