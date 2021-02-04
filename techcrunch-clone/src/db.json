@@ -1,15 +1,13 @@
 {
-    "tcList":[
+    "leaderBoard":[
         {
             "id":1,
-            "name":"Aadilt Mamujee",
-            "profileUrl":"https://techcrunch.com/wp-content/uploads/2021/01/nhsoyu2d2yeifn6p3ee7.png.png?w=45&h=45&crop=1",
-            "company":"Musha Ventures",
+            "name":"Canix",
             "companyUrl":"https://techcrunch.com/wp-content/uploads/2021/01/vqg7nebo6ijci8mkdcpo.png?w=45&h=45&crop=1",
-            "verticals":"Fintech",
-            "roundType":"pre-seed",
+            "events":"Disrupt 2020",
+            "outcome":"Winner",
             "Location":"New York City (NYC) / United States",
-            "portfolio":["Sokowatch","Safebode","Twiga Foods","Flutterwave","Yoco"]
+            "status":"Operating"
         },
         {
             "id":2,

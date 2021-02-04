@@ -5,6 +5,7 @@ import Login from "../Pages/Login/Components/Login";
 import SideBar from "../Pages/SideBar/Components/SideBar";
 import { Home } from "../Pages/Homepage/Components/Home";
 import TcList from "../Pages/TcList/Component/TcList";
+import StartupBattleField from "../Pages/Battlefield/Components/StartupBattleField";
 
 function Routes() {
   return (
@@ -14,6 +15,7 @@ function Routes() {
         <Route exact path="/login" render={(props) => <Login {...props} />} />
         <Route exact path="/" render={(props) => <Home {...props} />} />
         <Route exact path="/thetcList" render={(props)=><TcList {...props}/>} />
+        <Route exact path="/startup-battlefield" render={(props)=><StartupBattleField {...props}/>} />
         <Route
           render={() => (
             <h2 style={{ textAlign: "center" }}>Page not found...</h2>
