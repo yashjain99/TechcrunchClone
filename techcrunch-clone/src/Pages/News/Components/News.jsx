@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from  'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import {CardComponent} from './CardComponent'
 import {DialogBox} from './DialogBox'
 import {CircularProgress,Grid} from '@material-ui/core';
@@ -43,22 +43,23 @@ const Img = styled.div`
         width: 95%;
     }
 `;
-export const News = ({id = 1}) =>{
+export const News = () =>{
     //after merge get id from props
     const classes = useStyles()
     const dispatch = useDispatch();
     const news = useSelector(state => state.news)
+
+    const id = useParams();
+    console.log(id)
     console.log(news);
     // let cardData = news.filter(item => Number(item.id) !== Number(id))
     //                     .filter((item,index) => index < 2)
     
     useEffect( ()=>{
-        dispatch(getNewsData(id))
-       
-       
+        dispatch(getNewsData(id.id))
     },[])
     console.log(news);
-    return(
+    return news && news.title ? (
             <Grid container >
         {/* <NewsWrapper> */}
         <Container>
@@ -90,5 +91,5 @@ export const News = ({id = 1}) =>{
         </Container>
         {/* </NewsWrapper> */}
         </Grid>
-    )
+    ) : ""
 }

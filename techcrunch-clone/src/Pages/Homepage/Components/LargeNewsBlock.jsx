@@ -45,8 +45,9 @@ export function LargeNewsBlock({ news }) {
 
     const history = useHistory();
 
-    const handleNewsRedirect = (id, title) => {
-        history.push(`/news/${title}`, id)
+    const handleNewsRedirect = (id) => {
+        // console.log(news)
+        history.push(`/news/${id}`)
     }
 
     return (
