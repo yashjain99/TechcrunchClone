@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getSearchQuery } from '../Redux/action';
 
 const SearchBarWrapper = styled.div`
     border: 1px solid black;
@@ -44,16 +47,52 @@ const Spinner = styled.div`
     }
 `
 
-export function SearchBar() {
+const SuggestionBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+    max-height: 150;
+    min-width: 550;
+    overflow: auto;
+    border: 1px solid black;
+    border-top-color: transparent;
+    position: absolute;
+    z-index: 20;
+    background: white;
+
+    & * {
+        flex: 1;
+        padding: 5px;
+        text-align: left;
+        padding-left: 30px;
+    }
+
+    & :hover {
+        background: gray;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+`
+
+const DeleteTitleButton = styled.div`
+    cursor: pointer;
+`
+
+export function SearchBar({ placeholder }) {
     const [query, setQuery] = useState("");
-    const [suggestions, setSuggestions] = useState("")
+    const [suggestions, setSuggestions] = useState([])
     const [loading, setLoading] = useState(false);
     const [title, setTitle] = useState("");
+    const searchKeywords = useSelector(state => state.search.searchKeywords);
+
+    const dispatch = useDispatch();
+    const history = useHistory();
 
     const handleInputChange = (e) => {
         setTitle(e.target.value);
         setLoading(true);
-
+        
         setTimeout(() => {
             setLoading(false)
         },1000)
@@ -64,33 +103,72 @@ export function SearchBar() {
         setLoading(false)
     }
 
+    const handleSearchResult = (text) => {
+        history.push(`/search/${text}`)
+    }
+
     useEffect(() => {
+        dispatch(getSearchQuery(title))
+
         if(title === "") {
             setSuggestions([])
         }
-        else {
+        else if(searchKeywords) {
+            let output = searchKeywords.filter((item) => 
+                    item.query.indexOf(title) !== -1 ? true : false
+                ).map((item) => item.query);
             
+            setSuggestions(output);
+            console.log(suggestions)
         }
-    })
+
+        setTimeout(() => {
+            setLoading(false);
+        }, 1000)
+
+    },[title])
     
     return (
-        <SearchBarWrapper>
-            <IconImage 
-                src = "https://image.flaticon.com/icons/png/512/49/49116.png"
-                alt = "search icon"
-            />
-            <Input
-                value = { title }
-                onChange = { handleInputChange }
-            />
-            <RightSide>
-                {
-                   title && <div onClick = { handleClear } > X </div> 
-                }
-                {
-                    loading && <Spinner />
-                }
-            </RightSide>
-        </SearchBarWrapper>
+        <>
+            <SearchBarWrapper>
+                <IconImage 
+                    src = "https://image.flaticon.com/icons/png/512/49/49116.png"
+                    alt = "search icon"
+                />
+                <Input
+                    value = {title}
+                    placeholder = "Search something"
+                    onChange = { handleInputChange }
+                />
+                <RightSide>
+                    {
+                    title && (
+                            <DeleteTitleButton onClick = { handleClear } > 
+                                X 
+                            </DeleteTitleButton>
+                        )
+                    }
+                    {
+                        loading && <Spinner />
+                    }
+                </RightSide>
+            </SearchBarWrapper>
+            {
+                !loading && (
+                    <SuggestionBox>
+                        {
+                            suggestions.map((item) => {
+                                console.log(item)
+                                return (
+                                    <div key = { item } onClick = {() => handleSearchResult(item) } >
+                                        { item }
+                                    </div>
+                                )
+                            })
+                        }
+                    </SuggestionBox>
+                )
+            }
+        </>
     )
 }
