@@ -73,7 +73,7 @@ const AccountDetailsPage = () => {
           </span>
           <span>Active | Expired</span>
         </div>
-        <button style={{ float: "right", height: "40px" }}>logout-></button>
+        <button style={{ float: "right", height: "40px" }}>logout</button>
       </Wrapper>
     </>
   );
