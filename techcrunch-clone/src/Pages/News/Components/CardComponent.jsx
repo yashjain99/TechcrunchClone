@@ -25,21 +25,24 @@ const useStyles = makeStyles(theme =>({
        
     }
 }))
-export const CardComponent = () =>{
+export const CardComponent = ({cardData}) =>{
+  console.log(cardData);
     const classes = useStyles()
     return(
+      <>
+      {
+        cardData.title &&
         <Card className={classes.root}>
         <CardHeader
-          title="UiPath nabs $568M at a $7B valuation to bring robotic process automation to the front office"
+          title={cardData.title}
         />
         <CardContent className={classes.CardContent}>
         <CardMedia
             className={classes.media}
-          image="https://techcrunch.com/wp-content/uploads/2017/11/gettyimages-149260785.jpg?resize=150,100"
+          image={cardData.urlToImage}
         />
           <Typography variant="body2" color="textSecondary" component="p" className={classes.description}>
-          Companies are on the hunt for ways to reduce the time and money it costs their employees to perform repetitive tasks, so today a startup that has built a 
-          business to capitalize on this is announcing a huge round of funding to double down on the opportunity. UiPath — a robotic process automation startup
+            {cardData.description}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
@@ -58,5 +61,7 @@ export const CardComponent = () =>{
         </CardActions>
        
       </Card>
+      }
+      </>
     )
 }

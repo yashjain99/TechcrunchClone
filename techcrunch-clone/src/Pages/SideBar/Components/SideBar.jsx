@@ -30,7 +30,7 @@ const links = [
   },
   {
     link: "Startups",
-    to: "/startups",
+    to: "/startup-news",
   },
   {
     link: "Videos",

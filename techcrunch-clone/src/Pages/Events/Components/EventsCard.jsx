@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -24,11 +24,14 @@ import {
   GridListTile,
   Box,
   TextField,
+  Container,
 } from "@material-ui/core";
 import { NavLink, useHistory } from "react-router-dom";
 import clsx from "clsx";
 
 import styles from "./Events.module.css";
+import SideBar from "../../SideBar/Components/SideBar";
+import { useDispatch } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -65,19 +68,34 @@ const useStyles = makeStyles((theme) => ({
     height: "50px",
     borderRadius: "0%",
     fontWeight: "bolder",
-
     width: "140px",
+  },
+  container: {
+    // display: "flex",
+    // flexDirection: "row",
+    // justifyContent: "start",
+    marginLeft: "230px",
+    // marginTop: "20px",
+    // marginRight: "310px",
+    maxWidth: "890px",
   },
 }));
 
 export const EventsCard = ({ item }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
   const history = useHistory();
+  const [animatedLoader, setAnimatedLoader] = useState(true);
+
   const handleClick = () => {
     console.log(history);
   };
+
   return (
-    <>
+    <Container maxWidth="xl" className={classes.container}>
+      <Box>
+        <SideBar />
+      </Box>
       <Grid>
         <div className={styles.header}>
           {item.header.map((el) => (
@@ -292,6 +310,6 @@ export const EventsCard = ({ item }) => {
       </Grid>
       <br />
       <br />
-    </>
+    </Container>
   );
 };

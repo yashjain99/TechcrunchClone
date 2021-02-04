@@ -155,7 +155,7 @@ export function NewsletterSignUp() {
                                     />
                                 </Grid>
                                 <Grid item xl={3} lg={3} md={3} sm={2} xs={4}>
-                                    <Button variant = "filled" type = "submit" className = {classes.SubmitButton}>
+                                    <Button type = "submit" className = {classes.SubmitButton}>
                                         Subscribe
                                     </Button>
                                 </Grid>

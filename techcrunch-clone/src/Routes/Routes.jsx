@@ -4,34 +4,36 @@ import FooterPage from "../Pages/Footer/Components/FooterPage";
 import Login from "../Pages/Login/Components/Login";
 import SideBar from "../Pages/SideBar/Components/SideBar";
 import { Home } from "../Pages/Homepage/Components/Home";
+import { StartupNews } from "../Pages/StartupNews/Components/StartupNews";
+import { News } from "../Pages/News/Components/News";
 
 import EventsPage from "../Pages/Events/Components/EventsPage";
 
 function Routes() {
   return (
     <>
-      <SideBar />
       {/* <Route exact path="/" render={(props) => <SideBar {...props} />} /> */}
-      <div style={{ marginLeft: "250px", marginRight: "300px" }}>
-        <Switch>
-          <Route exact path="/login" render={(props) => <Login {...props} />} />
-          <Route exact path="/" render={(props) => <Home {...props} />} />
-          <Route
-            exact
-            path="/events/1"
-            render={(props) => <EventsPage {...props} />}
-          />
-
-          <Route
-            render={() => (
-              <h2 style={{ textAlign: "center" }}>Page not found...</h2>
-            )}
-          />
-        </Switch>
-      </div>
-      {/* Footer */}
+      <Switch>
+        <Route exact path="/" render={(props) => <Home {...props} />} />
+        <Route exact path="/login" render={(props) => <Login {...props} />} />
+        <Route
+          exact
+          path="/startup-news"
+          render={(props) => <StartupNews {...props} />}
+        />
+        <Route exact path="/news/:id" render={(props) => <News {...props} />} />
+        <Route
+          exact
+          path="/events/1"
+          render={(props) => <EventsPage {...props} />}
+        />
+        <Route
+          render={() => (
+            <h2 style={{ textAlign: "center" }}>Page not found...</h2>
+          )}
+        />
+      </Switch>
     </>
   );
 }
-
 export default Routes;
