@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./style.module.css";
 import ArrowDropDownRoundedIcon from "@material-ui/icons/ArrowDropDownRounded";
 import { useSelector } from "react-redux";
+import { Loader } from "../../Homepage/Components/Loader";
 
 const Table = (props) => {
   const tcData = useSelector((state) => state.tcList.tcData);
-  console.log(tcData);
+  const [animatedLoader,setAnimatedLoader]=useState(true)
+  console.log( tcData);
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      setAnimatedLoader(false)
+    },5000)
+  })
   return (
     <div style={{ padding: "0 250px" }}>
       <table className="table table-striped">
@@ -21,7 +29,8 @@ const Table = (props) => {
         </thead>
 
         <tbody>
-          {tcData &&
+         
+          { animatedLoader?(<Loader/>):  tcData &&
             tcData.map((item) => (
               <tr key={item.id}>
                 <td style={{ color: "#00a562" }}>
