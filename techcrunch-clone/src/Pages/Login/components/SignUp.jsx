@@ -55,7 +55,7 @@ const SignUp = (props) => {
   return (
     <div className={styles.login_box}>
       <div className={styles.login_head}>
-        <img
+        <img style={{marginLeft:"180px"}}
           src="https://s.yimg.com/wm/assets/images/ns/techcrunch-logov0.0.2.png"
           alt="TechCrunch"
           width="70"

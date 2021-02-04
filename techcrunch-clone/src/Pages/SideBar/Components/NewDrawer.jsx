@@ -82,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
 const moreLinks = [
   {
     link: "Startup Battlefield",
-    to: "/startupbattlefield",
+    to: "/startup-battlefield",
   },
   {
     link: "Sponsored Content",

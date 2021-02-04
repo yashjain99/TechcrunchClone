@@ -1,10 +1,13 @@
 import { POST_USER_SIGNUP_FAILURE, POST_USER_SIGNUP_REQUEST, POST_USER_SIGNUP_SUCCESS,
-    GET_USER_SIGNUP_FAILURE, GET_USER_SIGNUP_REQUEST, GET_USER_SIGNUP_SUCCESS, SIGNIN } from './actionType'
+    GET_USER_SIGNUP_FAILURE, GET_USER_SIGNUP_REQUEST, GET_USER_SIGNUP_SUCCESS, SIGNIN, SIGNUP, IS_AUTH, IS_OPEN, CLOSE_OPEN } from './actionType'
 const initState={
     isLoading:false,
     isError:false,
     isSigned:false,
-    userData:[]
+    userData:[],
+    isAuth:false,
+    isOpen:false,
+    email:""
 }
 
 const loginReducer = (state=initState,{type,payload}) => {
@@ -48,6 +51,28 @@ const loginReducer = (state=initState,{type,payload}) => {
             return{
                 ...state,
                 isSigned:true
+            }
+        case SIGNUP:
+            return{
+                ...state,
+                isSigned:false,
+                 
+            }
+        case IS_AUTH:
+            return{
+                ...state,
+                isAuth:true,
+                email:payload
+            }
+        case IS_OPEN:
+            return{
+                ...state,
+                isOpen:false
+            }
+        case CLOSE_OPEN:
+            return{
+                ...state,
+                isOpen:true
             }
             default:
                 return state
