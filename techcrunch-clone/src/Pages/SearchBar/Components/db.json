@@ -1,0 +1,54 @@
+[
+    {
+        "id": 1,
+        "query": "tech"
+    },
+    {
+        "id": 2,
+        "query": "technology"
+    },
+    {
+        "id": 3,
+        "query": "yahoo tech news"
+    },
+    {
+        "id": 4,
+        "query": "georgia tech"
+    },
+    {
+        "id": 5,
+        "query": "texas tech"
+    },
+    {
+        "id": 6,
+        "query": "5g technology"
+    },
+    {
+        "id": 7,
+        "query": "startup program"
+    },
+    {
+        "id": 8,
+        "query": "startup india"
+    },
+    {
+        "id": 9,
+        "query": "startup jobs"
+    },
+    {
+        "id": 10,
+        "query": "indeed jobs"
+    },
+    {
+        "id": 11,
+        "query": "steve jobs"
+    },
+    {
+        "id": 12,
+        "query": "online jobs"
+    },
+    {
+        "id": 13,
+        "query": "government jobs"
+    }
+]
