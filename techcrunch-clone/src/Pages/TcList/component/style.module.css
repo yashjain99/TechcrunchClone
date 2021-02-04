@@ -1,0 +1,126 @@
+.article_content{
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: #333;
+    letter-spacing: -.1px;
+    margin: 20px 0;
+    position: relative;
+    margin-left:210px;
+    width: calc(100vw - 210px - 360px);
+    margin-top: 0;
+    min-height: 80%;
+    position: relative;
+}
+.article_content p,li {
+    margin: 15px 0;
+    font: 1rem/1.77 Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+ 
+li{
+    text-align: left;
+    
+}
+a{
+    color:#00a562;
+    text-decoration: none;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.investors_filter_form{
+    margin-bottom:50px;
+    width:100%;
+}
+.investors_filter_form,.investors_clear_button{
+    float: right;
+    border: none;
+    background: 0 0;
+    outline: none;
+    font-weight: 700;
+    font-family: aktiv-grotesk,sans-serif;
+    font-size: 14px;
+    color: #000;
+    cursor: pointer;
+    margin-right: 200px;
+}
+/* button{
+    overflow: visible;
+    line-height: inherit;
+} */
+
+.investors_filter_form .investors_clear_button svg {
+    margin-right: 6px;
+    width: 14px;
+    height: 14px;
+    fill: green;
+    vertical-align: middle;
+}
+.investors_filter_form .filter_form_vertical .event_filter_box select{
+    width:800px;
+    height:50px;
+    border: 1px solid #ddd;
+     margin-left: 450px;
+     box-shadow: 0 0 0 0 rgb(0 0 0 / 20%);
+     transition: box-shadow .15s linear,-webkit-box-shadow .15s linear;
+}
+ 
+
+  .event_filter_box{
+      width:100%;
+      max-width: 100%;
+      margin: 20px 0;
+  }
+  .event_title{
+    font-size: .875rem;
+    letter-spacing: -.5px;
+    font-weight: 800;
+    margin-bottom: 5px;
+    color:black;
+  }
+  h4{
+    font-family: aktiv-grotesk,sans-serif;
+    letter-spacing: -.02em;
+    line-height: 1.2;
+     
+}
+ .filter_form_roundType .event_filter_box select{
+     width:400px;
+     margin-left: 450px;
+     height:50px;
+     border: 1px solid #ddd;
+}
+ .filter_form_location .event_filter_box select{
+     width:400px;
+     margin-left:10px;
+     height:50px;
+     border: 1px solid #ddd;
+}
+.feedback_link{
+    text-align: right;
+    margin-right: 300px;
+    
+}
+ .feedback_link svg{
+     fill: green;
+ } 
+ .datatable{
+     margin-bottom:50px;
+     font-family: aktiv-grotesk,sans-serif;
+    width: 600px;
+    padding: 40px;
+ } 
+ table{
+     border-collapse: collapse;
+     text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+ }
+ .datatable tbody{
+    font-size: 14px;
+    font-family: aktiv-grotesk,sans-serif;
+ }

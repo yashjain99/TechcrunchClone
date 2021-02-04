@@ -1,9 +1,10 @@
-import React,{useEffect} from  'react';
+import React,{useEffect,useState} from  'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CommentBox } from './CommentBox';
 import {Content} from './Content'
 import { getNewsData } from '../Redux/actions';
 import {getNewsHeadlines} from '../../Homepage/Redux/action'
+import { Link, useParams } from 'react-router-dom';
 import {CardComponent} from './CardComponent'
 import {Grid} from '@material-ui/core';
 import ModeCommentOutlinedIcon from '@material-ui/icons/ModeCommentOutlined';
@@ -41,16 +42,19 @@ const Img = styled.div`
         width: 95%;
     }
 `;
-export const News = ({id = 1}) =>{
+export const News = () =>{
     //after merge get id from props
     const classes = useStyles()
     const dispatch = useDispatch();
     const news = useSelector(state => state.news.news)
     const AllNewsData = useSelector(state => state.home.newsHeadlines)
     console.log(AllNewsData);
+    const id = useParams();
+    console.log(id)
+    console.log(news);
     let cardId = 1
-    if(Number(id) <= 1 && Number(id) <19){
-        cardId = Number(id) + 1
+    if(Number(id.id) <= 1 && Number(id.id) <19){
+        cardId = Number(id.id) + 1
     }
     console.log(cardId);
     let cardData = AllNewsData.find(item => Number(item.id) === Number(cardId))
@@ -58,13 +62,14 @@ export const News = ({id = 1}) =>{
     console.log(cardData);
     
     useEffect( ()=>{
-        dispatch(getNewsData(id))
+        dispatch(getNewsData(id.id))
         
        dispatch(getNewsHeadlines())
        
+
     },[])
     console.log(news);
-    return(
+    return news && news.title ? (
             <Grid container >
         {/* <NewsWrapper> */}
         <Container>
@@ -100,5 +105,5 @@ export const News = ({id = 1}) =>{
         </Container>
         {/* </NewsWrapper> */}
         </Grid>
-    )
+    ) : ""
 }

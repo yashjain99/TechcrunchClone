@@ -19,6 +19,7 @@ import { NavLink } from "react-router-dom";
 import clsx from "clsx";
 import NewDrawer from "./NewDrawer";
 import styles from "./SideBar.module.css";
+import { useSelector } from "react-redux";
 
 const drawerWidth = 240;
 
@@ -29,7 +30,7 @@ const links = [
   },
   {
     link: "Startups",
-    to: "/startups",
+    to: "/startup-news",
   },
   {
     link: "Videos",
@@ -150,6 +151,7 @@ const useStyles = makeStyles((theme) => ({
 export default function SideBar() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const isAuth = useSelector((state) => state.login.isAuth);
   const handleDrawerClose = () => {
     setOpen(false);
   };
@@ -166,7 +168,7 @@ export default function SideBar() {
         anchor="left"
         style={{ position: "absolute" }}
       >
-        <div style={{ margin: "20px 0 0 10px", textAlign: "left" }}>
+        <div style={{ margin: "20px 0 0 15px", textAlign: "left" }}>
           <img
             style={{ width: "50px" }}
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/TechCrunch_logo.svg/1200px-TechCrunch_logo.svg.png"
@@ -176,6 +178,22 @@ export default function SideBar() {
           <Typography style={{ color: "tomato", fontWeight: "bold" }}>
             Join extra crunch
           </Typography>
+          <br />
+          {isAuth ? (
+            <Typography>Progile Image</Typography>
+          ) : (
+            <NavLink
+              to="/login"
+              activeStyle={{ color: "seagreen" }}
+              style={{
+                color: "gray",
+                textDecoration: "none",
+                fontSize: "18px",
+              }}
+            >
+              Login
+            </NavLink>
+          )}
         </div>
         <List>
           {links.map((text, index) => (

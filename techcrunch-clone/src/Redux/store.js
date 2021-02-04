@@ -1,13 +1,17 @@
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
-import thunk from "redux-thunk";
+import { applyMiddleware, combineReducers, compose, createStore } from "redux";
+import thunk from "redux-thunk"
+import tcReducer from "../Pages/TcList/redux/tcReducer";
 import { homeReducer } from "../Pages/Homepage/Redux/homeReducer";
-import loginReducer from "../Pages/Login/redux/loginReducer";
-import {reducer as newsReducer} from '../Pages/News/Redux/Reducer'
+import loginReducer from "../Pages/Login/Redux/loginReducer";
+import {reducer as commentReducer} from '../Pages/News/Redux/Reducer';
+import { startupNewsReducer } from "../Pages/StartupNews/Redux/startupNewsReducer";
 
-const rootReducer = combineReducers ({
+const rootReducer = combineReducers({
     home: homeReducer,
     login: loginReducer,
-    news : newsReducer
+    news : commentReducer,
+    tcList: tcReducer,
+    startupNews: startupNewsReducer
 })
 
 const createComposer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

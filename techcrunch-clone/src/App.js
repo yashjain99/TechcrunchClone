@@ -1,17 +1,9 @@
-import { Home } from "./Pages/Homepage/Components/Home";
-import SideBar from "./Pages/SideBar/Components/SideBar";
-import Login from './Pages/Login/components/Login';
-import {News} from './Pages/News/Components/News'
+import Routes from './Routes/Routes';
 
 function App() {
   return (
     <div>
-{/* 
-      <SideBar />
-
-      <Login/>
-    <Home /> */}
-<News />
+      <Routes /> 
     </div>
   );
 }
