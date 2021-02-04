@@ -6,6 +6,7 @@ import SideBar from "../Pages/SideBar/Components/SideBar";
 import { Home } from "../Pages/Homepage/Components/Home";
 import { StartupNews } from "../Pages/StartupNews/Components/StartupNews";
 import { News } from "../Pages/News/Components/News";
+import TcList from "../Pages/TcList/component/TcList";
 
 function Routes() {
   return (
@@ -16,6 +17,7 @@ function Routes() {
         <Route exact path="/login" render={(props) => <Login {...props} />} />
         <Route exact path="/startup-news" render={(props) => <StartupNews {...props} />} />
         <Route exact path="/news/:id" render={(props) => <News {...props} />} />
+        <Route exact path="/thetcList" render={(props) => <TcList {...props} />} />
         <Route
           render={() => (
             <h2 style={{ textAlign: "center" }}>Page not found...</h2>
