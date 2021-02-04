@@ -1,0 +1,71 @@
+[
+  {
+    "id": 1,
+    "header": ["TC", "Sessions", "Justice", "2021"],
+    "date": "Mar 3",
+    "title": "Diversity, inclusion and the human labor that powers tech",
+    "subtitle": "Explore inclusive hiring, access to funding for Black people, Latinos, Latinas and Indigenous people, and workplace tools to foster inclusion and belonging. We’ll also examine the experiences of gig workers and formerly incarcerated people who are often left out of Silicon Valley’s wealth cycle. Rounding out the program will be a discussion about the role of venture capital in creating a more inclusive tech ecosystem.",
+    "title1": "Fireside Chats and Panel Discussions",
+    "subtitle1": "TechCrunch's editors will explore inclusive hiring, the gig worker experience, the justice system and more in a series of interviews with key figures in the technology community.",
+    "avatar1": "https://techcrunch.com/wp-content/uploads/2017/06/35014039981_3d7063e499_k.jpg?w=400&h=220&crop=1.jpg",
+    "title2": "Q&A with the experts during breakout sessions",
+    "subtitle2": "Dozens of breakout sessions will be led by deeply credentialed experts followed by engaged Q&A. This version of the event will cover startup disciplines including fundraising, go-to-market strategies, term sheet construction, growth tactics, interacting with the press and more.",
+    "avatar2": "https://techcrunch.com/wp-content/uploads/2020/03/OTR-crowd-with-raised-hands-500px-square.jpg?w=400&h=220&crop=1",
+    "news": {
+      "title": "Learn how to creatively navigate remote fundraising from top investors",
+      "subtitle": "As the COVID-19 era drags on, first-time founders need to find new ways to raise capital needed to keep startups offensive (and defense). Luckily, a trio of investors from top venture capital firms...",
+      "avatar": "https://techcrunch.com/wp-content/uploads/2021/02/justice-speaker-brackeen-thomas-scholz.jpg?w=430&h=230&crop=1",
+      "author": "Natasha Mascarenhas",
+      "time": "12:15 AM GMT+5:30•February 3, 2021"
+    },
+    "speakers": [
+      {
+        "name": "Naj Austin",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/y28p0rvucoeodfe9e7as.png?w=200&h=200&crop=1",
+        "post": "Founder &CEO, Somewhere Good, Ethels Club"
+      },
+      {
+        "name": "Cynthia L. Bennett",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/vqcljrua5fpqntrewfk1.jpg?w=200&h=200&crop=1",
+        "post": "Postdoctoral Researcher, Carnegie Mellon University Human-Computer Interaction Institute"
+      },
+      {
+        "name": "Parul Koul",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/dniavtmdxpc3p9fkun8j.jpg?w=200&h=200&crop=1",
+        "post": "Software Engineer, Google"
+      },
+      {
+        "name": "Christian Smalls",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/esbvexv3l08dqmtgcakl.jpg?w=200&h=200&crop=1",
+        "post": "Founder, The Congress of Essential Workers"
+      },
+      {
+        "name": "Jessica E. Martinez",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/nqltfrnkkn4wluk1dlhu.jpg?w=200&h=200&crop=1",
+        "post": "Co-Executive Director, National Institute for Occupational Safety and Health"
+      },
+      {
+        "name": "Clarissa Redwine",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/jtrpfezfxo3l1ho085ng.jpg?w=200&h=200&crop=1",
+        "post": "Design & Technology Outreach Lead, Kickstarter"
+      }
+    ],
+    "tickets": [
+      {
+        "title": "Founder Ticket - July Event",
+        "price": "$199",
+        "details": "This ticket is for verified founders. Get access to all interactive sessions for the July 8&9 event including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership. Must be a valid founder, co-founder, or c-suite employee of your company."
+      },
+      {
+        "title": "Innovator Ticket - July Event",
+        "price": "$299",
+        "details": "This ticket is for investors, and startup enthusiasts. Get access to all interactive sessions for the July 8&9 event including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership."
+      },
+      {
+        "title": "Founder Ticket - DUAL Event",
+        "price": "$399",
+        "details": "This ticket is for verified founders. Get access to all interactive sessions for BOTH the April 1&2 and July 8&9 events including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership. Must be a valid founder, co-founder, or c-suite employee of your company."
+      }
+    ]
+  }
+]

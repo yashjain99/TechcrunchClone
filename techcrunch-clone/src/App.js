@@ -1,5 +1,4 @@
-import { SearchBar } from './Pages/SearchBar/Components/SearchBar';
-import Routes from './Routes/Routes';
+import Routes from "./Routes/Routes";
 
 function App() {
   return (

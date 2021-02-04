@@ -19,7 +19,7 @@ import { GET_TCLIST_FAILURE, GET_TCLIST_REQUEST, GET_TCLIST_SUCCESS } from "./ac
             case GET_TCLIST_SUCCESS:
                 return{
                     ...state,
-                    isLoading:false,
+                    isLoading:true,
                     tcData:payload
                 }
                 case GET_TCLIST_FAILURE:

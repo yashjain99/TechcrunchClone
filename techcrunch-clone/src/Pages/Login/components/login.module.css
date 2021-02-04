@@ -1,5 +1,5 @@
-.cont {
-  background-image: url("../../../Images/Login.png");
+/* .body{
+   
   background-color: linear-gradient(to right,#01a663,#03d206);
 
   background-attachment: fixed;
@@ -7,6 +7,7 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+  */
 
 .login_body {
   height: 100%;
@@ -53,6 +54,9 @@
   top: 0;
   box-sizing: border-box;
   z-index: 0;
+}
+.login_head{
+  margin-right: 100px;
 }
 
 .login_box_container:before{

@@ -7,3 +7,7 @@ export const GET_USER_SIGNUP_FAILURE="GET_USER_SIGNUP_FAILURE"
 export const GET_USER_SIGNUP_REQUEST="GET_USER_SIGNUP_REQUEST"
 
 export const SIGNIN="SIGNIN"
+export const SIGNUP="SIGNUP"
+export const IS_AUTH="IS_AUTH"
+export const IS_OPEN="IS_OPEN"
+export const CLOSE_OPEN="CLOSE_OPEN"
