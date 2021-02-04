@@ -50,7 +50,7 @@ export function LargeNewsBlock({ news }) {
         history.push(`/news/${id}`)
     }
 
-    return (
+    return news && news.title && (
         <Grid item container onClick = {() => handleNewsRedirect(news.id) }>
             <Grid item xl={8} lg={8} md={8} sm={12} xs={12}>
                 <hr />

@@ -140,7 +140,6 @@ export const CommentBox = ({data}) =>{
                     :<>
                         <p>{username}</p>
                         <input type="text" value={commentText}
-                                autoFocus
                                 onChange={e => setCommentText(e.target.value)}
                                 placeholder="Add a comment..."
                         />
