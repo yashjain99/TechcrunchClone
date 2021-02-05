@@ -50,7 +50,7 @@ export function Home() {
     useEffect(() => {
         setTimeout(() => {
             setAnimatedLoader(false)
-        },3000)
+        },1500)
 
         dispatch(getNewsHeadlines())
         
