@@ -99,16 +99,16 @@ const FilterForm = (props) => {
                 <h4 className={styles.event_title} style={{marginLeft:"20px"}} >Location</h4>
                 <div>
                     <select value={location} onChange={e=>setLocation(e.target.value)}>
-                        <option></option>
-                        <option>New York City (NYC) / United States</option>
-                        <option>San Francisco Bay Area (SF) / United States</option>
-                        <option>Tel Aviv / Israel</option>
-                        <option>Washington DC / United States</option>
-                        <option>London / United Kingdom (UK) / Europe</option>
-                        <option>Minneapolis / United States</option>
-                        <option>New York City (NYC) / United States</option>
-                        <option>San Francisco Bay Area (SF) / United States</option>
-                        <option>Tel Aviv / Israel</option>
+                        <option value=""></option>
+                        <option value="New York City (NYC) / United States" >New York City (NYC) / United States</option>
+                        <option value="San Francisco Bay Area (SF) / United States">San Francisco Bay Area (SF) / United States</option>
+                        <option value="Tel Aviv / Israel">Tel Aviv / Israel</option>
+                        <option value="Washington DC / United States">Washington DC / United States</option>
+                        <option value="London / United Kingdom (UK) / Europe">London / United Kingdom (UK) / Europe</option>
+                        <option value="Minneapolis / United States">Minneapolis / United States</option>
+                        <option value="New York City (NYC) / United States">New York City (NYC) / United States</option>
+                        <option value="San Francisco Bay Area (SF) / United States">San Francisco Bay Area (SF) / United States</option>
+                        <option value="Tel Aviv / Israel">Tel Aviv / Israel</option>
                     </select>
                 </div>
             </div>

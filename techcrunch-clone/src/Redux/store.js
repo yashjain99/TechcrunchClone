@@ -5,13 +5,14 @@ import { homeReducer } from "../Pages/Homepage/Redux/homeReducer";
 import loginReducer from "../Pages/Login/Redux/loginReducer";
 import {reducer as commentReducer} from '../Pages/News/Redux/Reducer';
 import { startupNewsReducer } from "../Pages/StartupNews/Redux/startupNewsReducer";
-
+import  battlefieldReducer  from "../Pages/Battlefield/Redux/battlefieldReducer"
 const rootReducer = combineReducers({
     home: homeReducer,
     login: loginReducer,
     news : commentReducer,
     tcList: tcReducer,
-    startupNews: startupNewsReducer
+    startupNews: startupNewsReducer,
+    leaderboard:battlefieldReducer
 })
 
 const createComposer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

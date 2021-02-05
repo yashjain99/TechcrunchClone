@@ -10,6 +10,7 @@ import { News } from "../Pages/News/Components/News";
 import EventsPage from "../Pages/Events/Components/EventsPage";
 import TcList from "../Pages/TcList/Component/TcList";
 import StartupBattleField from "../Pages/Battlefield/Components/StartupBattleField";
+import Leaderboard from "../Pages/Battlefield/Components/Leaderboard";
 
 function Routes() {
   return (
@@ -31,6 +32,7 @@ function Routes() {
         />
         <Route exact path="/thetcList" render={(props)=><TcList {...props}/>} />
         <Route exact path="/startup-battlefield" render={(props)=><StartupBattleField {...props}/>} />
+        <Route exact path="/startup-battlefield/leaderboard" render={(props)=><Leaderboard {...props}/>} />
         <Route
           render={() => (
             <h2 style={{ textAlign: "center" }}>Page not found...</h2>
