@@ -1,28 +1,28 @@
-import { GET_TCLIST_FAILURE, GET_TCLIST_REQUEST, GET_TCLIST_SUCCESS } from "./actionType"
+import { GET_LEADERBOARD_FAILURE, GET_LEADERBOARD_REQUEST, GET_LEADERBOARD_SUCCESS } from "./actionType"
 
  const initState={
      isLoading:false,
      isError:false,
-     tcData:[]
+     leaderboardData:[]
  }
 
   
  
- const tcReducer = (state=initState,{type,payload}) => {
+ const battlefieldReducer = (state=initState,{type,payload}) => {
     //  console.log(type,payload)
     switch(type){
-        case GET_TCLIST_REQUEST:
+        case GET_LEADERBOARD_REQUEST:
             return {
                 ...state,
                 isLoading:true
             }
-            case GET_TCLIST_SUCCESS:
+            case GET_LEADERBOARD_SUCCESS:
                 return{
                     ...state,
                     isLoading:true,
-                    tcData:payload
+                    leaderboardData:payload
                 }
-                case GET_TCLIST_FAILURE:
+                case GET_LEADERBOARD_FAILURE:
                     return{
                         ...state,
                         isLoading:false,
@@ -33,5 +33,5 @@ import { GET_TCLIST_FAILURE, GET_TCLIST_REQUEST, GET_TCLIST_SUCCESS } from "./ac
     }
  }
  
- export default tcReducer
+ export default battlefieldReducer
  

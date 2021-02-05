@@ -19,11 +19,11 @@
     overflow: hidden;
     left: -30px;
 }
-.content{
+/* .content{
     min-height: 80%;
     position: relative;
     
-}
+} */
 .label{
     font-weight: 600;
     color: #fff;
@@ -62,3 +62,10 @@
      font: 1rem/1.77 Helvetica Neue,Helvetica,Arial,sans-serif;
      font-size: 22px;
  }
+/* 
+ @media (min-width:700px){
+     .content{
+         flex:0 1 auto;
+         max-width: calc(100vw - 380px);
+     }
+ } */
