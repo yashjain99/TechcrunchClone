@@ -48,7 +48,7 @@ const Table = (props) => {
                 <td style={{ color: "#00a562" }}>{item.verticals}</td>
                 <td>{item.roundType}</td>
                 <td>{item.Location}</td>
-                <td>{item.portfolio.join("\n")}</td>
+                <td>{item.portfolio.join(", ")}</td>
               </tr>
             ))}
         </tbody>
