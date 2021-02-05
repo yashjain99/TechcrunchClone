@@ -68,6 +68,7 @@ export const CommentBox = ({data}) =>{
     // console.log(userData);
     
     const username = isAuth && `${user.firstname} ${user.lastname}`
+    const email = isAuth && `${user.email}`
     const handleOpenAnchorEl = (event) => {
       setAnchorEl(event.currentTarget);
       console.log(anchorEl);
@@ -90,7 +91,8 @@ export const CommentBox = ({data}) =>{
         let payload = {
             id : uuid(),
             comment : commentText,
-            username : username
+            username : username,
+            email: email
         }
         let updatedComments = [...data.comments, payload]
         dispatch(addComment(data.id, updatedComments))

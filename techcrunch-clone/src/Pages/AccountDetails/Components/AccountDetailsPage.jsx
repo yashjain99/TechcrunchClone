@@ -43,10 +43,11 @@ const useStyles = makeStyles({
 })
 
 const AccountDetailsPage = () => {
-  const [booleanval, setBooleanval] = useState(false);
-  const [eventsFlag, setEventsFlag] = useState(false);
-  const [userActivity, setUserActivity] = useState(false);
-  const [support, setSupport] = useState(false);
+  const [bool1, setBool1] = useState(true);
+  const [bool2, setBool2] = useState(false);
+  const [bool3, setBool3] = useState(false);
+  const [bool4, setBool4] = useState(false);
+  
   const [animatedLoader, setAnimatedLoader] = useState(true);
   const userData = useSelector(state => state.account.userData);
   const isAuth = useSelector(state => state.login.isAuth);
@@ -60,57 +61,72 @@ const AccountDetailsPage = () => {
   const params = useParams();
   const id = params.id;
 
-  const handleNewslettersClick = () => {
-    setBooleanval(!booleanval);
-    setEventsFlag(false);
-    setUserActivity(false);
-    setSupport(false);
+  const handleClick1 = () => {
+    setBool1(!bool1);
+    setBool2(false);
+    setBool3(false);
+    setBool4(false);
+  };
+  const handleClick2 = () => {
+    setBool1(false);
+    setBool2(!bool2);
+    setBool3(false);
+    setBool4(false);
+  };
+  const handleClick3 = () => {
+    setBool1(false);
+    setBool2(false);
+    setBool3(!bool3);
+    setBool4(false);
+  };
+  const handleClick4 = () => {
+    setBool1(false);
+    setBool2(false);
+    setBool3(false);
+    setBool4(!bool4);
   };
 
-  const handleEventsClick = () => {
-    setBooleanval(false);
-    setEventsFlag(!eventsFlag);
-    setUserActivity(false);
-    setSupport(false);
-  };
-
-  const handleUserActivityClick = () => {
-    setBooleanval(false);
-    setEventsFlag(false);
-    setUserActivity(!userActivity);
-    setSupport(false);
-  };
-
-  const handleSupportClick = () => {
-    setBooleanval(false);
-    setEventsFlag(false);
-    setUserActivity(false);
-    setSupport(!support);
-  };
-
-  const visibilityNewsletter = {};
-  const visibilityEvents = {};
-  const visibilityUserActivity = {};
-  const visibilitySupport = {};
-
-  if (booleanval) visibilityNewsletter.visibility = "hidden";
-  else visibilityNewsletter.visibility = "visible";
-
-  if (eventsFlag) visibilityEvents.visibility = "hidden";
-  else visibilityEvents.visibility = "visible";
-
-  if (userActivity) visibilityUserActivity.visibility = "hidden";
-  else visibilityUserActivity.visibility = "visible";
-
-  if (support) visibilitySupport.visibility = "hidden";
-  else visibilitySupport.visibility = "visible";
+  const style1 = {};
+  if (bool1) style1.display = "inline";
+  else style1.display = "none";
+  const style2 = {};
+  if (bool2) style2.display = "inline";
+  else style2.display = "none";
+  const style3 = {};
+  if (bool3) style3.display = "inline";
+  else style3.display = "none";
+  const style4 = {};
+  if (bool4) style4.display = "inline";
+  else style4.display = "none";
 
   const handleLogout = () => {
     dispatch(logoutUser())
   }
 
+  const redirectToNews = (id) => {
+    history.push(`/news/${id}`)
+  }
 
+  let userCommentsData = []
+  let flag = false;
 
+  newsData.map((item) => { item.comments.map((item) => {
+    if(item.email == userData.email) {
+      flag = true;
+      return
+    }
+    else {
+      flag = false;
+    }
+  })
+  if(flag) {
+    userCommentsData.push(item)
+  }
+  flag=false;
+})
+
+console.log(userCommentsData);
+  
   useEffect(() => {
     setTimeout(() => {
         setAnimatedLoader(false)
@@ -171,16 +187,16 @@ console.log(userData.newsLetters)
                     <br/>
                     <h3> Subscription Details </h3>
                     <div style = {{display: "flex", justifyContent: "space-around"}} >
-                      <button onClick={handleNewslettersClick} style={{height: "50px", width: "120px", backgroundColor: "lightgrey", outline: "none"  }}>
+                      <button onClick={handleClick1} style={{height: "50px", width: "120px", backgroundColor: "lightgrey", outline: "none"  }}>
                         Newsletter
                       </button>
-                      <button onClick={handleEventsClick} style={{height: "50px", width: "120px", backgroundColor: "lightgrey", outline: "none"  }}>
+                      <button onClick={handleClick2} style={{height: "50px", width: "120px", backgroundColor: "lightgrey", outline: "none"  }}>
                         Events Booked
                       </button>
-                      <button onClick={handleUserActivityClick} style={{height: "50px", width: "120px", backgroundColor: "lightgrey", outline: "none"  }}>
+                      <button onClick={handleClick3} style={{height: "50px", width: "120px", backgroundColor: "lightgrey", outline: "none"  }}>
                         User Activity
                       </button>
-                      <button onClick={handleSupportClick} style={{height: "50px", width: "120px", backgroundColor: "lightgrey", outline: "none"  }}>
+                      <button onClick={handleClick4} style={{height: "50px", width: "120px", backgroundColor: "lightgrey", outline: "none"  }}>
                         Support
                       </button>
                     </div>
@@ -188,7 +204,7 @@ console.log(userData.newsLetters)
                       {
                         userData.newsLetters?.map((item) => {
                           return(
-                            <div key = {item.id} style = {visibilityNewsletter} >
+                            <div key = {item.id} style = {style1} >
                               {item.subTitle}
                             </div>
                           )
@@ -197,22 +213,22 @@ console.log(userData.newsLetters)
                       {
                         userData.events?.map((item) => {
                           return(
-                            <div key = {item.id} style = {visibilityEvents} >
+                            <div key = {item.id} style = {style2} >
                               {item.subTitle}
                             </div>
                           )
                         })
                       }
                       {
-                        userData.comments?.map((item) => {
+                        userCommentsData?.map((item, index) => {
                           return(
-                            <div key = {item.id} style = {visibilityUserActivity} >
-                              {item.subTitle}
+                            <div key = {item.id} style = {style3} onClick = {() => redirectToNews(item.id)} >
+                              {`${index + 1} ${item.title}`}
                             </div>
                           )
                         })
                       }
-                      <div style = {{...visibilitySupport,}} >
+                      <div style = {style4} >
                         Customer Support
                         For information on frequently asked questions, please visit our Help Center.
 

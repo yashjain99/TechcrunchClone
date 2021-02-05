@@ -22,6 +22,7 @@ import styles from "./SideBar.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { SearchBar } from "../../SearchBar/Components/SearchBar";
 import {getAccountDetails} from "../../AccountDetails/Redux/action.js"
+import AccountCircleRoundedIcon from "@material-ui/icons/AccountCircleRounded";
 
 const drawerWidth = 240;
 
@@ -241,9 +242,14 @@ export default function SideBar() {
                 color: "gray",
                 textDecoration: "none",
                 fontSize: "18px",
+                display: "flex",
+                flexDirection :"row"
               }}
             >
-              { userData.firstname }
+              <AccountCircleRoundedIcon />
+              <div style = {{paddingLeft: "10px"}}>
+                { userData.firstname }
+              </div>
             </NavLink>
           ) : (
             <NavLink
