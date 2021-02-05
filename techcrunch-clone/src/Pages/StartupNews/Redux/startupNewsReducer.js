@@ -11,7 +11,7 @@ const initState = {
 }
 
 export const startupNewsReducer = (state = initState, {type, payload}) => {
-    console.log(type, payload)
+    // console.log(type, payload)
 
     switch(type) {
         case FETCH_STARTUP_NEWS_REQUEST: 
