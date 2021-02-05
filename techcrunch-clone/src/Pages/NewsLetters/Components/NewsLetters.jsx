@@ -111,7 +111,8 @@ export const Newsletters = () =>{
       });
       console.log(state);
       let arr = []
-      
+
+
       
     //login info from login reducer
     const userEmail = useSelector(state => state.login.email)
