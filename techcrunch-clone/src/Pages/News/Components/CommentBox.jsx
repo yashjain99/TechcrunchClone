@@ -1,4 +1,4 @@
-import React, {useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import {DialogBox} from './DialogBox'
 import {v4 as uuid} from 'uuid'
 import PeopleIcon from '@material-ui/icons/People';
@@ -7,8 +7,10 @@ import MoreVertIcon from '@material-ui/icons/MoreVert'
 import styled from 'styled-components'
 import {makeStyles} from '@material-ui/styles'
 import { addComment, deleteComment,editComment } from '../Redux/actions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { EditCommentBox } from './EditCommentBox';
+import {getUserSignup} from '../../Login/redux/action'
+import PersonIcon from '@material-ui/icons/Person';
 
 const useStyles = makeStyles(theme =>({
     icon:{
@@ -37,7 +39,7 @@ const Body = styled.div`
     }
     & input{
             width : 100%;
-            height: 25px;
+            height: 28px;
         }
     & button{
         height:30px;
@@ -58,7 +60,16 @@ export const CommentBox = ({data}) =>{
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [openEditComment, setOpenEditComment] = useState(false)
     //will apdate username after merge with login comp.
-    const username = "dinesh"
+    useEffect(()=>{
+        dispatch(getUserSignup())
+    },[])
+    const userData = useSelector(state => state.login.userData)
+    const userEmail = useSelector(state => state.login.email)
+    const isAuth = useSelector(state => state.login.isAuth)
+    let user = userData.find(item => item.email === userEmail)
+    console.log(userData);
+    
+    const username = isAuth && `${user.firstname} ${user.lastname}`
     const handleOpenAnchorEl = (event) => {
       setAnchorEl(event.currentTarget);
       console.log(anchorEl);
@@ -66,7 +77,7 @@ export const CommentBox = ({data}) =>{
     const handleCloseAnchorEl = () => {
       setAnchorEl(null);
     };
-    const auth = true;
+   
     const classes = useStyles()
 
     const handleClose = () =>{
@@ -136,7 +147,7 @@ export const CommentBox = ({data}) =>{
             <hr/>
             <Body>
             {
-                !auth ? <div onClick={()=>setOpen(true)}>Add a comment... </div>
+                !isAuth ? <div onClick={()=>setOpen(true)}>Add a comment... </div>
                     :<>
                         <p>{username}</p>
                         <input type="text" value={commentText}
@@ -157,7 +168,7 @@ export const CommentBox = ({data}) =>{
                         <CardHeader
                           avatar={
                             <Avatar aria-label="recipe" className={classes.avatar}>
-                              {username[0]}
+                                <PersonIcon/>
                             </Avatar>
                           }
                           action={
