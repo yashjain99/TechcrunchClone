@@ -5,6 +5,7 @@ import { homeReducer } from "../Pages/Homepage/Redux/homeReducer";
 import loginReducer from "../Pages/Login/Redux/loginReducer";
 import {reducer as commentReducer} from '../Pages/News/Redux/Reducer';
 import { startupNewsReducer } from "../Pages/StartupNews/Redux/startupNewsReducer";
+import { searchReducer } from "../Pages/SearchBar/Redux/searchReducer";
 import  battlefieldReducer  from "../Pages/Battlefield/Redux/battlefieldReducer"
 import {reducer as eventsReducer} from '../Pages/EventsPage/Redux/reducer'
 
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
     news : commentReducer,
     tcList: tcReducer,
     startupNews: startupNewsReducer,
+    search: searchReducer,
     leaderboard:battlefieldReducer,
     events : eventsReducer
 })
