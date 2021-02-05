@@ -36,7 +36,7 @@ const useStyles = makeStyles({
       display: "flex",
       // flexDirection: "row",
       justifyContent: "start",
-      marginLeft: "-50px",
+      marginLeft: "0px",
       marginTop: "20px",
       width: "100%"
   }
@@ -137,7 +137,7 @@ console.log(userCommentsData);
 
 },[])
 console.log(userData.newsLetters)
-  return isAuth ? (
+  return userData && isAuth ? (
     <Container maxWidth = "xl" className = { classes.container }>
       <Box>
           <SideBar />
@@ -186,6 +186,7 @@ console.log(userData.newsLetters)
                     </div>
                     <br/>
                     <h3> Subscription Details </h3>
+                    <br/>
                     <div style = {{display: "flex", justifyContent: "space-around"}} >
                       <button onClick={handleClick1} style={{height: "50px", width: "120px", backgroundColor: "lightgrey", outline: "none"  }}>
                         Newsletter
@@ -200,25 +201,25 @@ console.log(userData.newsLetters)
                         Support
                       </button>
                     </div>
-                    <div style = {{ fontSize: "18px"}} >
+                    <div style = {{ fontSize: "18px", height: "300px", width: "700px", margin: "13px 0", border: "1px solid #03d206", padding: "15px"}} >
                       {
-                        userData.newsLetters?.map((item) => {
+                        userData.newsLetters?.map((item, index) => {
                           return(
                             <div key = {item.id} style = {style1} >
-                              {item.subTitle}
+                              {`${index + 1} ${item.title}`}
                             </div>
                           )
                         })
                       }
-                      {
-                        userData.events?.map((item) => {
+                      {/* {
+                        userData.events?.map((item, index) => {
                           return(
                             <div key = {item.id} style = {style2} >
-                              {item.subTitle}
+                              {`${index + 1} ${item.title} ${item.price}`}
                             </div>
                           )
                         })
-                      }
+                      } */}
                       {
                         userCommentsData?.map((item, index) => {
                           return(
@@ -229,15 +230,22 @@ console.log(userData.newsLetters)
                         })
                       }
                       <div style = {style4} >
-                        Customer Support
-                        For information on frequently asked questions, please visit our Help Center.
-
-                        To contact our customer support team directly, please send an email to extracrunch@techcrunch.com.
-
-                        Please visit our feedback forum to let us know how we can improve your Extra Crunch experience.
+                        <div style = {{fontSize: "20px"}}><b>Customer Support</b></div>
+                        <br/>
+                        <div>
+                          For information on frequently asked questions, please visit our <a href = "">Help Center</a>.
+                        </div>
+                        <br/>
+                        <div>
+                          To contact our customer support team directly, please send an email to <a href = "">extracrunch@techcrunch.com</a>.
+                        </div>
+                        <br/>
+                        <div>
+                          Please visit our <a href = "">feedback forum</a> to let us know how we can improve your Extra Crunch experience.
+                        </div>
                       </div>
                     </div>
-                    <button style={{ float: "right", height: "50px", width: "120px", backgroundColor: "lightgrey", outline: "none" }} onClick = { handleLogout } >
+                    <button style={{ float: "right", height: "50px", width: "120px", backgroundColor: "lightgrey"}} onClick = { handleLogout } >
                       Logout ❘➜
                     </button>
                     <FooterPage />
