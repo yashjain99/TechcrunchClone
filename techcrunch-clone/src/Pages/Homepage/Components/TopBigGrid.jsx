@@ -64,7 +64,7 @@ export function TopBigGrid({ newsOne, newsTwo, newsThree, newsFour, newsFive }) 
         history.push(`/news/${id}`)
     }
 
-    return newsOne.title && (
+    return newsOne && newsOne.title && (
         <Grid item container direction = "row">
             <Grid item xl={5} lg={5} md={6} sm={7} xs={11} className = {classes.marginRightBottom30FilterOpacity} onClick = {() => handleNewsRedirect(newsOne.id)} >
                 <Typography gutterBottom variant="h4" className = {classes.headline} >

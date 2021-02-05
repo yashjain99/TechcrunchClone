@@ -22,19 +22,25 @@ const Colorchange = styled.div`
    
 `;
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) =>({
   root: {
     flexGrow: 1,
+    left: "0",
+    bottom: "0",
+    backgroundColor: "transparent",
+    marginTop: "70px"
   },
   paper: {
     padding: theme.spacing(0),
     textAlign: "left",
     color: theme.palette.text.secondary,
     cursor: "default",
+    backgroundColor: "transparent"
   },
 
   heading: {
-    fontWeight: "bold",
+    fontWeight: "900",
+    color: "black"
   },
   text: {
     marginTop: "20px",
@@ -45,8 +51,8 @@ export default function FooterPage() {
   const classes = useStyles();
 
   return (
-    <>
       <div className={classes.root}>
+        <hr/>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={3} lg={2}>
             <Paper className={classes.paper} elevation={0}>
@@ -156,6 +162,5 @@ export default function FooterPage() {
           </Grid>
         </Grid>
       </div>
-    </>
   );
 }

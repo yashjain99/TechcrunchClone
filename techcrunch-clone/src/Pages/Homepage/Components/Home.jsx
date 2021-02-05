@@ -65,7 +65,7 @@ export function Home() {
                 {
                 animatedLoader ? (
                         <Loader />
-                    ) : (
+                    ) : newsHeadlines[0] && (
                         <Box>
                             <Grid container>
                                 <TopBigGrid 
