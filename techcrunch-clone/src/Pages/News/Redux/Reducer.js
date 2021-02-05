@@ -7,7 +7,7 @@ const initState = {
     data : {}
 }
 export const reducer = (state = initState, {type, payload}) =>{
-    console.log(type, payload);
+    // console.log(type, payload);
     switch(type){
         case GET_NEWS_DATA_REQ:
             return{

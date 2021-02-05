@@ -3,7 +3,7 @@ import styles from "./style.module.css";
 
 const Banner = (props) => {
   return (
-    <div  style={{marginTop:"-100px"}} className={styles.content}>
+    <div  style={{marginTop:"-140px"}} className={styles.content}>
       <div className={styles.header}>
         <div className={styles.header_content}>
           <h1 style={{fontSize:"120px",fontWeight:"800"}}>

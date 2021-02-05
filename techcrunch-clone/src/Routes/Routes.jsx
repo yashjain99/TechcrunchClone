@@ -13,6 +13,9 @@ import Advertise from "../Pages/Advertise/Components/Advertise"
 import { SearchResultPage } from "../Pages/SearchBar/Components/SearchResultPage";
 import Leaderboard from "../Pages/Battlefield/Components/Leaderboard";
 import AccountDetailsPage from "../Pages/AccountDetails/Components/AccountDetailsPage";
+import SponsorPage from "../Pages/Sponsor/Components/SponsorPage"
+import ResponsePage from "../Pages/Sponsor/Components/ResponsePage"
+
 function Routes() {
   return (
     <>
@@ -33,6 +36,8 @@ function Routes() {
         <Route exact path="/advertise" render={(props)=><Advertise {...props}/>} />
         <Route exact path="/startup-battlefield/leaderboard" render={(props)=><Leaderboard {...props}/>} />
         <Route exact path="/my-account/:id" render={(props) => <AccountDetailsPage {...props} />} />
+        <Route exact path="/sponsor" render={(props)=><SponsorPage {...props}/>} />
+        <Route exact path="/response" render={(props)=><ResponsePage {...props} /> }/>
         <Route
           render={() => (
             <h2 style={{ textAlign: "center" }}>Page not found...</h2>

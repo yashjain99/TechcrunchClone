@@ -11,7 +11,7 @@ const initState = {
 }
 
 export const accountReducer = (state = initState, { type, payload }) => {
-    console.log(type, payload)
+    // console.log(type, payload)
 
     switch(type) {
         case FETCH_ACCOUNT_DETAILS_REQUEST:

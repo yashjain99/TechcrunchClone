@@ -15,7 +15,7 @@ const initState = {
 }
 
 export const searchReducer = (state = initState, { type, payload }) => {
-    console.log(type, payload)
+    // console.log(type, payload)
     
     switch(type) {
         case FETCH_SEARCH_KEYWORDS_REQUEST:
