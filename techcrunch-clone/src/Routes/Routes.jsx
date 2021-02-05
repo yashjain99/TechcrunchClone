@@ -13,7 +13,6 @@ import Advertise from "../Pages/Advertise/Components/Advertise"
 import { SearchResultPage } from "../Pages/SearchBar/Components/SearchResultPage";
 import Leaderboard from "../Pages/Battlefield/Components/Leaderboard";
 import AccountDetailsPage from "../Pages/AccountDetails/Components/AccountDetailsPage";
-
 function Routes() {
   return (
     <>

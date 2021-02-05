@@ -1,5 +1,6 @@
 import React from 'react';
 import { SmallNewsBlock } from './SmallNewsBlock';
+import { useHistory } from "react-router-dom";
 import {
     Grid,
     Typography,
@@ -56,10 +57,16 @@ const useStyles = makeStyles({
 
 export function TopBigGrid({ newsOne, newsTwo, newsThree, newsFour, newsFive }) {
     const classes = useStyles();
+    const history = useHistory();
 
-    return (
+    const handleNewsRedirect = (id) => {
+        // console.log(news)
+        history.push(`/news/${id}`)
+    }
+
+    return newsOne.title && (
         <Grid item container direction = "row">
-            <Grid item xl={5} lg={5} md={6} sm={7} xs={11} className = {classes.marginRightBottom30FilterOpacity}>
+            <Grid item xl={5} lg={5} md={6} sm={7} xs={11} className = {classes.marginRightBottom30FilterOpacity} onClick = {() => handleNewsRedirect(newsOne.id)} >
                 <Typography gutterBottom variant="h4" className = {classes.headline} >
                     { newsOne.title}
                 </Typography>
@@ -84,19 +91,19 @@ export function TopBigGrid({ newsOne, newsTwo, newsThree, newsFour, newsFive }) 
                     </Typography>
                 </Grid>
                 <Grid item>
-                    <SmallNewsBlock news = { newsTwo } />
+                    <SmallNewsBlock handleNewsRedirect = { handleNewsRedirect } news = { newsTwo } />
                     <hr />
                 </Grid>
                 <Grid item>
-                    <SmallNewsBlock news = { newsThree } />
+                    <SmallNewsBlock handleNewsRedirect = { handleNewsRedirect } news = { newsThree } />
                     <hr />
                 </Grid>
                 <Grid item>
-                    <SmallNewsBlock news = { newsFour } />
+                    <SmallNewsBlock handleNewsRedirect = { handleNewsRedirect } news = { newsFour } />
                     <hr />
                 </Grid>
                 <Grid item>
-                    <SmallNewsBlock news = { newsFive } />
+                    <SmallNewsBlock handleNewsRedirect = { handleNewsRedirect } news = { newsFive } />
                 </Grid>
             </Grid>
         </Grid>

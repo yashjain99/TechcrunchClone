@@ -30,22 +30,22 @@ const links = [
     link: "Startups",
     to: "/startup-news",
   },
-  {
-    link: "Videos",
-    to: "/videos",
-  },
-  {
-    link: "Audio",
-    to: "/audio",
-  },
+  // {
+  //   link: "Videos",
+  //   to: "/videos",
+  // },
+  // {
+  //   link: "Audio",
+  //   to: "/audio",
+  // },
   {
     link: "Newsletters",
     to: "/newsletters",
   },
-  {
-    link: "Extra Crunch",
-    to: "/extracrunch",
-  },
+  // {
+  //   link: "Extra Crunch",
+  //   to: "/extracrunch",
+  // },
   {
     link: "The TC List",
     to: "/thetcList",
@@ -58,6 +58,10 @@ const links = [
     link: "Events",
     to: "/events",
   },
+  {
+    link: "Startup Battlefield",
+    to: "/startup-battlefield",
+  }
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -295,14 +299,11 @@ export default function SideBar() {
         </List>
         <Divider />
         <List>
-          {["More"].map((text, index) => (
+          {/* {["More"].map((text, index) => (
             <ListItem style={{ color: "gray" }} button key={text}>
-              {/* <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon> */}
               <ListItemText primary={text} onClick={() => setOpen(!open)} />
             </ListItem>
-          ))}
+          ))} */}
         </List>
       </Drawer>
       <main className={classes.content1}>

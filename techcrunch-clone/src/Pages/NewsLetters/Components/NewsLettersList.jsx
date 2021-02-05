@@ -50,7 +50,7 @@ export default function NewsLettersList({newslettersData, state, handleChange}) 
         <List className={classes.root}>
         {
             newslettersData && data.map((value) => (
-                <Grid item  key={value.id} xl={6} lg={6} md={6} sm={6} xs={12} className={classes.grid}>
+                <Grid item  key={value.id} xl={6} lg={6} md={6} sm={12} xs={12} className={classes.grid}>
                     <ListItem button className={classes.listItem}>
                     <span >
                       <ListItemText   className={classes.text} id={value.id} primary={value.title} />
@@ -58,13 +58,10 @@ export default function NewsLettersList({newslettersData, state, handleChange}) 
 
                     </span>
                       <ListItemSecondaryAction >
-                        <Checkbox
-                          edge="end"
-                          className={classes.Checkbox}
-                          onChange={handleChange}
-                          checked={state.id}
-                          name ={value.id}
-                        />
+                      <input type="checkbox" className={classes.checkbox}  
+                                        onChange={handleChange}
+                                        checked={state.id}
+                                        name ={value.id}/>
                       </ListItemSecondaryAction>
                     </ListItem>
                 </Grid>
@@ -87,7 +84,10 @@ export default function NewsLettersList({newslettersData, state, handleChange}) 
 
                     </span>
                       <ListItemSecondaryAction  edge="end">
-                        <input type="checkbox" className={classes.checkbox}/>
+                        <input type="checkbox" className={classes.checkbox}  
+                                        onChange={handleChange}
+                                        checked={state.id}
+                                        name ={value.id}/>
                       </ListItemSecondaryAction>
                     </ListItem>
                 </Grid>
