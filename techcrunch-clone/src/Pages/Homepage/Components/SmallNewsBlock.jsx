@@ -32,11 +32,11 @@ const useStyles = makeStyles({
     }
 })
 
-export function SmallNewsBlock({ news }) {
+export function SmallNewsBlock({ news, handleNewsRedirect }) {
     const classes = useStyles();
 
     return (
-        <Box className = { classes.filterOpacity } >
+        <Box className = { classes.filterOpacity } onClick = {() => handleNewsRedirect(news.id)} >
             <Typography gutterBottom variant="h6" className = {classes.headline}>
                 { news.title }
             </Typography>
