@@ -21,6 +21,7 @@ const useStyles = makeStyles({
         marginLeft: "15%"
     },
     logo: {
+        paddingLeft: "10px",
         width: "100px",
         "&:hover": {
             cursor: "pointer"
@@ -54,7 +55,7 @@ export function SearchResultPage() {
     console.log(news, "result")
     return (
         <Container maxWidth = "xl" className = {classes.container}>
-            <Grid container direction = "row" justify = "space-around" >
+            <Grid container direction = "row" justify = "space-around" style = {{marginBottom: "10px"}} >
                 <Grid item xl={5} lg={5} md={7} sm={9} xs={10}>
                     <SearchBar suggestionWidth = "40%" />
                 </Grid>
@@ -67,7 +68,7 @@ export function SearchResultPage() {
                     />
                 </Grid>
             </Grid>
-            <Box>
+            <Box style = {{marginTop: "10px"}} >
                 {
                     animatedLoader ? (
                         <Loader />

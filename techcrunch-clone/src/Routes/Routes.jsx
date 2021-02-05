@@ -5,7 +5,6 @@ import { Home } from "../Pages/Homepage/Components/Home";
 import { StartupNews } from "../Pages/StartupNews/Components/StartupNews";
 import { News } from "../Pages/News/Components/News";
 import {Events} from '../Pages/EventsPage/Components/Events'
-import EventsPage from "../Pages/Events/Components/EventsPage";
 import TcList from "../Pages/TcList/Component/TcList";
 import EventsPage from "../Pages/Events/Components/EventsPage";
 import StartupBattleField from "../Pages/Battlefield/Components/StartupBattleField";
