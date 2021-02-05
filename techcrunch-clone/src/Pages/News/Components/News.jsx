@@ -29,7 +29,7 @@ const useStyles = makeStyles({
 })
 
 const Container = styled.div`
-   width: 100%;
+   width: 95%;
    margin-left: 10px;
 `
 const Header = styled.div`
@@ -64,7 +64,7 @@ export const News = () =>{
     console.log(id)
     console.log(news);
     let cardId = 1
-    if(Number(id.id) <= 1 && Number(id.id) <19){
+    if(Number(id.id) >= 1 && Number(id.id) <19){
         cardId = Number(id.id) + 1
     }
     console.log(cardId);
@@ -75,13 +75,13 @@ export const News = () =>{
     useEffect( ()=>{
         setTimeout(() => {
          setAnimatedLoader(false)
-     },3000)
+     },1500)
 
         dispatch(getNewsData(id.id))
         
        dispatch(getNewsHeadlines())
-
-    },[])
+       window.scrollTo(0, 0)
+    },[id.id])
     console.log(news);
     return news && news.title ? (
         <Container maxWidth = "xl" className = { classes.container }>

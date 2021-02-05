@@ -1,9 +1,9 @@
-import React , {useState} from "react";
+import React , {useState, useEffect} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
+import Box from "@material-ui/core/Box";
 import List from "@material-ui/core/List";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
@@ -15,12 +15,13 @@ import MailIcon from "@material-ui/icons/Mail";
 import SearchIcon from "@material-ui/icons/Search";
 import MenuIcon from "@material-ui/icons/Menu";
 import { IconButton, Avatar } from "@material-ui/core";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import clsx from "clsx";
 import NewDrawer from "./NewDrawer";
 import styles from "./SideBar.module.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { SearchBar } from "../../SearchBar/Components/SearchBar";
+import {getAccountDetails} from "../../AccountDetails/Redux/action.js"
 
 const drawerWidth = 240;
 
@@ -29,22 +30,22 @@ const links = [
     link: "Startups",
     to: "/startup-news",
   },
-  {
-    link: "Videos",
-    to: "/videos",
-  },
-  {
-    link: "Audio",
-    to: "/audio",
-  },
+  // {
+  //   link: "Videos",
+  //   to: "/videos",
+  // },
+  // {
+  //   link: "Audio",
+  //   to: "/audio",
+  // },
   {
     link: "Newsletters",
     to: "/newsletters",
   },
-  {
-    link: "Extra Crunch",
-    to: "/extracrunch",
-  },
+  // {
+  //   link: "Extra Crunch",
+  //   to: "/extracrunch",
+  // },
   {
     link: "The TC List",
     to: "/thetcList",
@@ -57,6 +58,10 @@ const links = [
     link: "Events",
     to: "/events",
   },
+  {
+    link: "Startup Battlefield",
+    to: "/startup-battlefield",
+  }
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -164,6 +169,12 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       cursor: "pointer",
     }
+  },
+  logo: {
+    width: "50px",
+    "&:hover": {
+      cursor: "pointer"
+    }
   }
 }));
 
@@ -171,7 +182,12 @@ export default function SideBar() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const isAuth = useSelector((state) => state.login.isAuth);
+  const userId = useSelector((state) => state.login.userId);
+  const userData = useSelector((state) => state.account.userData);
   const [openSearchbar, setOpenSearchbar] = useState(false)
+
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleDrawerClose = () => {
     setOpen(false);
@@ -181,8 +197,17 @@ export default function SideBar() {
     setOpenSearchbar(prev => !prev)
   }
 
+  const redirectToHome = () => {
+    history.push("/")
+  }
+
+  useEffect(() => {
+    dispatch(getAccountDetails(userId))
+  },[])
+
   return (
-    <div className={classes.root}>
+    <Box display={{ xs: 'none', md: 'block' }}>
+    <div className={classes.root} >
       <CssBaseline />
 
       <Drawer
@@ -196,7 +221,8 @@ export default function SideBar() {
       >
         <div style={{ margin: "20px 0 0 15px", textAlign: "left" }}>
           <img
-            style={{ width: "50px" }}
+            className = {classes.logo}
+            onClick = { redirectToHome }
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/TechCrunch_logo.svg/1200px-TechCrunch_logo.svg.png"
           />
           <br />
@@ -206,7 +232,19 @@ export default function SideBar() {
           </Typography>
           <br />
           {isAuth ? (
-            <Typography>Progile Image</Typography>
+            <NavLink
+              to={{
+                pathname: `/my-account/${userId}`,
+              }}
+              activeStyle={{ color: "seagreen" }}
+              style={{
+                color: "gray",
+                textDecoration: "none",
+                fontSize: "18px",
+              }}
+            >
+              { userData.firstname }
+            </NavLink>
           ) : (
             <NavLink
               to="/login"
@@ -261,14 +299,11 @@ export default function SideBar() {
         </List>
         <Divider />
         <List>
-          {["More"].map((text, index) => (
+          {/* {["More"].map((text, index) => (
             <ListItem style={{ color: "gray" }} button key={text}>
-              {/* <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon> */}
               <ListItemText primary={text} onClick={() => setOpen(!open)} />
             </ListItem>
-          ))}
+          ))} */}
         </List>
       </Drawer>
       <main className={classes.content1}>
@@ -276,5 +311,6 @@ export default function SideBar() {
       </main>
       <NewDrawer open={open} handleDrawerClose={handleDrawerClose} />
     </div>
+    </Box>
   );
 }

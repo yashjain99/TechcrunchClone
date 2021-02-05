@@ -11,7 +11,7 @@ const Table = (props) => {
   useEffect(()=>{
     setTimeout(()=>{
       setAnimatedLoader(false)
-    },5000)
+    },2000)
   })
   return (
     <div style={{ padding: "0 250px" }}>

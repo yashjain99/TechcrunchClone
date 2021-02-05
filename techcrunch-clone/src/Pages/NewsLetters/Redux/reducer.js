@@ -1,26 +1,25 @@
-import {GET_NEWS_DATA_REQ, GET_NEWS_DATA_SUCCESS, GET_NEWS_DATA_FAILURE} from './actionTypes'
+import {GET_NEWSLETTERS_REQ, GET_NEWSLETTERS_SUCCESS, GET_NEWSLETTERS_FAILURE} from './actionType'
 
 const initState = {
-    isLoading: false,
-    news : [],
-    isError : false,
-    data : {}
+    newsLettersData : [],
+    isLoading : false,
+    isError : false
 }
+
 export const reducer = (state = initState, {type, payload}) =>{
-    // console.log(type, payload);
     switch(type){
-        case GET_NEWS_DATA_REQ:
+        case GET_NEWSLETTERS_REQ:
             return{
                 ...state,
-                isLoading: true
+                isLoading : true
             }
-        case GET_NEWS_DATA_SUCCESS:
+        case GET_NEWSLETTERS_SUCCESS:
             return{
                 ...state,
                 isLoading: false,
-                news : payload
+                newsLettersData : payload
             }
-        case GET_NEWS_DATA_FAILURE:
+        case GET_NEWSLETTERS_FAILURE:
             return{
                 ...state,
                 isLoading: false,
@@ -28,6 +27,5 @@ export const reducer = (state = initState, {type, payload}) =>{
             }
         default:
             return state
-
     }
 }

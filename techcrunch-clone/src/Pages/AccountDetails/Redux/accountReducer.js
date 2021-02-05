@@ -1,33 +1,33 @@
 import {
-    FETCH_STARTUP_NEWS_REQUEST,
-    FETCH_STARTUP_NEWS_SUCCESS,
-    FETCH_STARTUP_NEWS_FAILURE
+    FETCH_ACCOUNT_DETAILS_REQUEST,
+    FETCH_ACCOUNT_DETAILS_SUCCESS,
+    FETCH_ACCOUNT_DETAILS_FAILURE
 } from "./actionTypes";
 
 const initState = {
-    newsHeadlines: [],
     isLoading: false,
+    userData: [],
     error: false
 }
 
-export const startupNewsReducer = (state = initState, {type, payload}) => {
+export const accountReducer = (state = initState, { type, payload }) => {
     // console.log(type, payload)
 
     switch(type) {
-        case FETCH_STARTUP_NEWS_REQUEST: 
+        case FETCH_ACCOUNT_DETAILS_REQUEST:
             return {
                 ...state,
                 isLoading: true,
                 error: false
             }
-        case FETCH_STARTUP_NEWS_SUCCESS: 
+        case FETCH_ACCOUNT_DETAILS_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
                 error: false,
-                newsHeadlines: payload
+                userData: payload
             }
-        case FETCH_STARTUP_NEWS_FAILURE:
+        case FETCH_ACCOUNT_DETAILS_FAILURE:
             return {
                 ...state,
                 isLoading: false,

@@ -47,7 +47,7 @@ export function SearchResultPage() {
     useEffect(() => {
         setTimeout(() => {
             setAnimatedLoader(false)
-        },3000)
+        },1500)
         console.log(query.id)
 
         dispatch(getNewsBySearch(query.id))
