@@ -7,15 +7,21 @@ import {reducer as commentReducer} from '../Pages/News/Redux/Reducer';
 import { startupNewsReducer } from "../Pages/StartupNews/Redux/startupNewsReducer";
 import {reducer as eventsReducer} from '../Pages/EventsPage/Redux/reducer';
 import {reducer as newslettersReducer} from '../Pages/NewsLetters/Redux/reducer'
+import { searchReducer } from "../Pages/SearchBar/Redux/searchReducer";
+import  battlefieldReducer  from "../Pages/Battlefield/Redux/battlefieldReducer"
+import { accountReducer } from "../Pages/AccountDetails/Redux/accountReducer"
 
 const rootReducer = combineReducers({
     home: homeReducer,
     login: loginReducer,
-    news : commentReducer,
+    news: commentReducer,
     tcList: tcReducer,
     startupNews: startupNewsReducer,
     events : eventsReducer,
-    newsletters : newslettersReducer
+    newsletters : newslettersReducer,
+    search: searchReducer,
+    leaderboard: battlefieldReducer,
+    account: accountReducer
 })
 
 const createComposer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

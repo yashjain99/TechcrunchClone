@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useState, useEffect} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -15,19 +15,17 @@ import MailIcon from "@material-ui/icons/Mail";
 import SearchIcon from "@material-ui/icons/Search";
 import MenuIcon from "@material-ui/icons/Menu";
 import { IconButton, Avatar } from "@material-ui/core";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import clsx from "clsx";
 import NewDrawer from "./NewDrawer";
 import styles from "./SideBar.module.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { SearchBar } from "../../SearchBar/Components/SearchBar";
+import {getAccountDetails} from "../../AccountDetails/Redux/action.js"
 
 const drawerWidth = 240;
 
 const links = [
-  {
-    link: "Search",
-    to: "/search",
-  },
   {
     link: "Startups",
     to: "/startup-news",
@@ -146,15 +144,63 @@ const useStyles = makeStyles((theme) => ({
   buttonNavbar: {
     padding: 10,
   },
+  searchButton: {
+    color: "gray", 
+    textDecoration: "none", 
+    fontSize: "18px", 
+    padding: "10px 0 10px 15px",
+    marginTop: "0",
+    marginBottom: "0",
+    "&:hover": {
+      cursor: "pointer",
+      backgroundColor: "#f2f2f2"
+    }
+  },
+  clear: {
+    color: "#ffffff",
+    backgroundColor: "#333333",
+    padding: "10px 0 10px 5px",
+    width: "100%",
+    fontSize: "18px",
+    "&:hover": {
+      cursor: "pointer",
+    }
+  },
+  logo: {
+    width: "50px",
+    "&:hover": {
+      cursor: "pointer"
+    }
+  }
 }));
 
 export default function SideBar() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const isAuth = useSelector((state) => state.login.isAuth);
+  const userId = useSelector((state) => state.login.userId);
+  const userData = useSelector((state) => state.account.userData);
+  const [openSearchbar, setOpenSearchbar] = useState(false)
+
+  const dispatch = useDispatch();
+  const history = useHistory();
+
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const toggleSearchbar = () => {
+    setOpenSearchbar(prev => !prev)
+  }
+
+  const redirectToHome = () => {
+    history.push("/")
+  }
+
+  useEffect(() => {
+    dispatch(getAccountDetails(userId))
+  },[])
+
   return (
     <Box display={{ xs: 'none', md: 'block' }}>
     <div className={classes.root} >
@@ -171,7 +217,8 @@ export default function SideBar() {
       >
         <div style={{ margin: "20px 0 0 15px", textAlign: "left" }}>
           <img
-            style={{ width: "50px" }}
+            className = {classes.logo}
+            onClick = { redirectToHome }
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/TechCrunch_logo.svg/1200px-TechCrunch_logo.svg.png"
           />
           <br />
@@ -181,7 +228,19 @@ export default function SideBar() {
           </Typography>
           <br />
           {isAuth ? (
-            <Typography>Progile Image</Typography>
+            <NavLink
+              to={{
+                pathname: `/my-account/${userId}`,
+              }}
+              activeStyle={{ color: "seagreen" }}
+              style={{
+                color: "gray",
+                textDecoration: "none",
+                fontSize: "18px",
+              }}
+            >
+              { userData.firstname }
+            </NavLink>
           ) : (
             <NavLink
               to="/login"
@@ -197,6 +256,27 @@ export default function SideBar() {
           )}
         </div>
         <List>
+          {
+            openSearchbar ? (
+              <div>
+                <div style = {{display: "flex"}}>
+                  <div className = {classes.clear}  onClick = { toggleSearchbar }>
+                    Close Search
+                  </div>
+                  <div className = {classes.clear} style = {{paddingRight: "0px"}} onClick = { toggleSearchbar }  > 
+                    X 
+                  </div>
+                </div>
+                <div style = {{width: "100%"}} >
+                  <SearchBar suggestionWidth = "100%" />
+                </div>
+              </div>
+            ) : (
+              <div className = {classes.searchButton} onClick = { toggleSearchbar }>
+                Search
+              </div>
+            )
+          }
           {links.map((text, index) => (
             <ListItem button key={text.link}>
               <NavLink

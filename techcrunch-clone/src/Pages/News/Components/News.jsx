@@ -75,7 +75,7 @@ export const News = () =>{
     useEffect( ()=>{
         setTimeout(() => {
          setAnimatedLoader(false)
-     },3000)
+     },1500)
 
         dispatch(getNewsData(id.id))
         
