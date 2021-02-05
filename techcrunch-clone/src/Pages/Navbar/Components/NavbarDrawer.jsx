@@ -9,6 +9,7 @@ import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import CloseIcon from "@material-ui/icons/Close";
+import AccountCircleRoundedIcon from "@material-ui/icons/AccountCircleRounded";
 
 const drawerWidth = 240;
 
@@ -145,9 +146,14 @@ export default function NavbarDrawer({ open, handleDrawerClose }) {
                 color: "gray",
                 textDecoration: "none",
                 fontSize: "18px",
+                display: "flex",
+                flexDirection :"row"
               }}
             >
-              { userData.firstname }
+              <AccountCircleRoundedIcon />
+              <div style = {{paddingLeft: "10px"}}>
+                { userData.firstname }
+              </div>
             </NavLink>
           ) : (
             <NavLink
