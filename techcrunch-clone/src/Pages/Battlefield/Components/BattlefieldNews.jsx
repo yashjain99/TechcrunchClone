@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 const BlogWrapper = styled.div`
@@ -31,6 +32,10 @@ const BlogWrapper = styled.div`
 const BattlefieldNews = (props) => {
   const data = useSelector((state) => state.home.newsHeadlines);
   console.log(data, "dtat");
+  const history=useHistory()
+  const handleRedirect=(id)=>{
+    history.push(`/news/${id}`)
+  }
   return (
     <div style={{ marginLeft: "300px", marginRight: "300px" }}>
       <h1 style={{ color: "black", fontWeight: 700, margin: "50px 0" }}>
@@ -39,7 +44,7 @@ const BattlefieldNews = (props) => {
       <div>
         {data.filter((item)=>item.id<=8).map((item) => (
           <BlogWrapper key={item.id}>
-            <div className="outer hovering">
+            <div className="outer hovering" onClick={()=>handleRedirect(item.id)}>
               <div className="inner">
                 <div style={{ fontSize: "20px", fontWeight: "bold" }}>
                   {item.title}

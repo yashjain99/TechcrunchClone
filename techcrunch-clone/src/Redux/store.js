@@ -6,13 +6,16 @@ import loginReducer from "../Pages/Login/Redux/loginReducer";
 import {reducer as commentReducer} from '../Pages/News/Redux/Reducer';
 import { startupNewsReducer } from "../Pages/StartupNews/Redux/startupNewsReducer";
 import  battlefieldReducer  from "../Pages/Battlefield/Redux/battlefieldReducer"
+import {reducer as eventsReducer} from '../Pages/EventsPage/Redux/reducer'
+
 const rootReducer = combineReducers({
     home: homeReducer,
     login: loginReducer,
     news : commentReducer,
     tcList: tcReducer,
     startupNews: startupNewsReducer,
-    leaderboard:battlefieldReducer
+    leaderboard:battlefieldReducer,
+    events : eventsReducer
 })
 
 const createComposer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

@@ -6,6 +6,7 @@ import SideBar from "../Pages/SideBar/Components/SideBar";
 import { Home } from "../Pages/Homepage/Components/Home";
 import { StartupNews } from "../Pages/StartupNews/Components/StartupNews";
 import { News } from "../Pages/News/Components/News";
+import {Events} from '../Pages/EventsPage/Components/Events'
 
 import EventsPage from "../Pages/Events/Components/EventsPage";
 import TcList from "../Pages/TcList/Component/TcList";
@@ -25,6 +26,7 @@ function Routes() {
           render={(props) => <StartupNews {...props} />}
         />
         <Route exact path="/news/:id" render={(props) => <News {...props} />} />
+        <Route exact path="/events" render={(props) => <Events {...props} />} />
         <Route
           exact
           path="/events/1"
