@@ -1,7 +1,6 @@
 /* .body{
    
   background-color: linear-gradient(to right,#01a663,#03d206);
-
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -49,12 +48,45 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%;
-    position: relative;
-    top: 0;
-    box-sizing: border-box;
-    z-index: 0;
-  }
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: .82353rem;
+    letter-spacing: .58px;
+    text-align: center;
+}
+.challenge,.challenge_heading{
+    display: block;
+    margin: 0;
+    margin-top: .82353rem;
+    font-size: 1.17647rem;
+    font-weight: 600;
+    letter-spacing: -.2px;
+    text-align: center;
+    line-height: 1.35294rem;
+}
+
+
+.span_color{
+    color:green;
+    cursor:pointer;
+}
+.secondary_text{
+   font-size:13px;
+   color:grey;
+}
+
+.btn{
+    width:350px;
+    border:0px;
+    border:1px solid green;
+    padding:10px;
+    color:green;
+    border-radius:5px;
+    font-size:18px;
+    background-color:#fff;
+    cursor:pointer;
+}
+   
   .login_head{
     margin-right: 100px;
   }
