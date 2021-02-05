@@ -29,7 +29,7 @@ const useStyles = makeStyles({
         display: "flex",
         flexDirection: "row",
         justifyContent: "start",
-        marginLeft: "-50px",
+        marginLeft: "0px",
         marginTop: "20px",
         position: "relative"
     }

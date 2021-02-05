@@ -63,11 +63,9 @@ export const CommentBox = ({data}) =>{
     useEffect(()=>{
         dispatch(getUserSignup())
     },[])
-    const userData = useSelector(state => state.login.userData)
-    const userEmail = useSelector(state => state.login.email)
-    const isAuth = useSelector(state => state.login.isAuth)
-    let user = userData.find(item => item.email === userEmail)
-    console.log(userData);
+        const user = useSelector(state => state.account.userData)
+        const isAuth = useSelector(state => state.login.isAuth)
+    // console.log(userData);
     
     const username = isAuth && `${user.firstname} ${user.lastname}`
     const handleOpenAnchorEl = (event) => {
