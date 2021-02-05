@@ -7,8 +7,7 @@ import { Loader } from "../../Homepage/Components/Loader";
 const Table = (props) => {
   const tcData = useSelector((state) => state.tcList.tcData);
   const [animatedLoader,setAnimatedLoader]=useState(true)
-  console.log( tcData);
-
+  
   useEffect(()=>{
     setTimeout(()=>{
       setAnimatedLoader(false)
@@ -19,7 +18,9 @@ const Table = (props) => {
       <table className="table table-striped">
         <thead>
           <tr>
+            <td></td>
             <td>Name</td>
+            <td></td>
             <td>Company</td>
             <td>Verticals</td>
             <td>Round Type</td>
@@ -33,16 +34,15 @@ const Table = (props) => {
           { animatedLoader?(<Loader/>):  tcData &&
             tcData.map((item) => (
               <tr key={item.id}>
+                <td> <img src={item.profileUrl} width="35px" /></td>
                 <td style={{ color: "#00a562" }}>
-                  <span>
-                    <img src={item.profileUrl} width="35px" />
-                  </span>
+                  
                   {item.name}
+                
                 </td>
+                <td><img src={item.companyUrl} width="35px" /></td>
                 <td style={{ color: "#00a562" }}>
-                  <span>
-                    <img src={item.companyUrl} width="35px" />
-                  </span>
+                 
                   {item.company}
                 </td>
                 <td style={{ color: "#00a562" }}>{item.verticals}</td>
