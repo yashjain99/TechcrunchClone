@@ -89,6 +89,7 @@ export const EventsCard = ({ item }) => {
 
   const handleClick = () => {
     console.log(history);
+    history.push("/payment");
   };
 
   return (

@@ -6,6 +6,7 @@ import SideBar from "../Pages/SideBar/Components/SideBar";
 import { Home } from "../Pages/Homepage/Components/Home";
 import { StartupNews } from "../Pages/StartupNews/Components/StartupNews";
 import { News } from "../Pages/News/Components/News";
+import PaymentPage from "../Pages/Payment/Components/PaymentPage";
 
 import EventsPage from "../Pages/Events/Components/EventsPage";
 
@@ -26,6 +27,11 @@ function Routes() {
           exact
           path="/events/1"
           render={(props) => <EventsPage {...props} />}
+        />
+        <Route
+          exact
+          path="/payment"
+          render={(props) => <PaymentPage {...props} />}
         />
         <Route
           render={() => (
