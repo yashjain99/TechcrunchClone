@@ -8,6 +8,7 @@ import {Events} from '../Pages/EventsPage/Components/Events'
 import TcList from "../Pages/TcList/Component/TcList";
 import EventsPage from "../Pages/Events/Components/EventsPage";
 import StartupBattleField from "../Pages/Battlefield/Components/StartupBattleField";
+import Advertise from "../Pages/Advertise/Components/Advertise"
 import { SearchResultPage } from "../Pages/SearchBar/Components/SearchResultPage";
 import Leaderboard from "../Pages/Battlefield/Components/Leaderboard";
 import AccountDetailsPage from "../Pages/AccountDetails/Components/AccountDetailsPage";
@@ -28,6 +29,7 @@ function Routes() {
         <Route exact path="/events/1" render={(props) => <EventsPage {...props} />} />
         <Route exact path="/thetcList" render={(props)=><TcList {...props}/>} />
         <Route exact path="/startup-battlefield" render={(props)=><StartupBattleField {...props}/>} />
+        <Route exact path="/advertise" render={(props)=><Advertise {...props}/>} />
         <Route exact path="/startup-battlefield/leaderboard" render={(props)=><Leaderboard {...props}/>} />
         <Route exact path="/my-account/:id" render={(props) => <AccountDetailsPage {...props} />} />
         <Route
