@@ -6,9 +6,10 @@ import SideBar from "../Pages/SideBar/Components/SideBar";
 import { Home } from "../Pages/Homepage/Components/Home";
 import { StartupNews } from "../Pages/StartupNews/Components/StartupNews";
 import { News } from "../Pages/News/Components/News";
-import {Events} from '../Pages/EventsPage/Components/Events'
+import { Events } from "../Pages/EventsPage/Components/Events";
+import PaymentPage from "../Pages/Payment/Components/PaymentPage";
 
-import EventsPage from "../Pages/Events/Components/EventsPage";
+import { EventsPage } from "../Pages/Events/Components/EventsPage";
 import TcList from "../Pages/TcList/Component/TcList";
 import StartupBattleField from "../Pages/Battlefield/Components/StartupBattleField";
 
@@ -28,18 +29,31 @@ function Routes() {
         <Route exact path="/events" render={(props) => <Events {...props} />} />
         <Route
           exact
-          path="/events/1"
+          path="/events/:id"
           render={(props) => <EventsPage {...props} />}
         />
-        <Route exact path="/thetcList" render={(props)=><TcList {...props}/>} />
-        <Route exact path="/startup-battlefield" render={(props)=><StartupBattleField {...props}/>} />
+        <Route
+          exact
+          path="/thetcList"
+          render={(props) => <TcList {...props} />}
+        />
+        <Route
+          exact
+          path="/startup-battlefield"
+          render={(props) => <StartupBattleField {...props} />}
+        />
+        <Route
+          exact
+          path="/payment"
+          render={(props) => <PaymentPage {...props} />}
+        />
         <Route
           render={() => (
             <h2 style={{ textAlign: "center" }}>Page not found...</h2>
           )}
         />
       </Switch>
-       {/* <FooterPage/> */}
+      {/* <FooterPage/> */}
     </>
   );
 }
