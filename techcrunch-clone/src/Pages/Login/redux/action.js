@@ -1,5 +1,7 @@
 import { POST_USER_SIGNUP_FAILURE, POST_USER_SIGNUP_REQUEST, POST_USER_SIGNUP_SUCCESS,
-    GET_USER_SIGNUP_FAILURE, GET_USER_SIGNUP_REQUEST, GET_USER_SIGNUP_SUCCESS, SIGNIN, SIGNUP, IS_AUTH, IS_OPEN, CLOSE_OPEN } from "./actionType";
+    GET_USER_SIGNUP_FAILURE, GET_USER_SIGNUP_REQUEST, GET_USER_SIGNUP_SUCCESS, SIGNIN, SIGNUP, IS_AUTH, IS_OPEN, CLOSE_OPEN,
+    LOGOUT_USER 
+} from "./actionType";
 import axios from "axios"
 
 export const postUserSignupRequest=()=>({
@@ -62,3 +64,9 @@ export const isOpened=()=>({
 export const notOpened=()=>({
     type:CLOSE_OPEN
 })
+
+export const logoutUser = () => {
+    return {
+        type: LOGOUT_USER
+    }
+}

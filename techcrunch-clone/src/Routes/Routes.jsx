@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Login from "../Pages/Login/Components/Login";
+import Login from "../Pages/Login/components/Login";
 import { Home } from "../Pages/Homepage/Components/Home";
 import { StartupNews } from "../Pages/StartupNews/Components/StartupNews";
 import { News } from "../Pages/News/Components/News";
@@ -11,6 +11,7 @@ import StartupBattleField from "../Pages/Battlefield/Components/StartupBattleFie
 import Advertise from "../Pages/Advertise/Components/Advertise"
 import { SearchResultPage } from "../Pages/SearchBar/Components/SearchResultPage";
 import Leaderboard from "../Pages/Battlefield/Components/Leaderboard";
+import AccountDetailsPage from "../Pages/AccountDetails/Components/AccountDetailsPage";
 
 function Routes() {
   return (
@@ -30,6 +31,7 @@ function Routes() {
         <Route exact path="/startup-battlefield" render={(props)=><StartupBattleField {...props}/>} />
         <Route exact path="/advertise" render={(props)=><Advertise {...props}/>} />
         <Route exact path="/startup-battlefield/leaderboard" render={(props)=><Leaderboard {...props}/>} />
+        <Route exact path="/my-account/:id" render={(props) => <AccountDetailsPage {...props} />} />
         <Route
           render={() => (
             <h2 style={{ textAlign: "center" }}>Page not found...</h2>

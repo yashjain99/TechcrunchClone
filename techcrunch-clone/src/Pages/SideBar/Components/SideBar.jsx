@@ -1,4 +1,4 @@
-import React , {useState} from "react";
+import React , {useState, useEffect} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -15,12 +15,13 @@ import MailIcon from "@material-ui/icons/Mail";
 import SearchIcon from "@material-ui/icons/Search";
 import MenuIcon from "@material-ui/icons/Menu";
 import { IconButton, Avatar } from "@material-ui/core";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import clsx from "clsx";
 import NewDrawer from "./NewDrawer";
 import styles from "./SideBar.module.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { SearchBar } from "../../SearchBar/Components/SearchBar";
+import {getAccountDetails} from "../../AccountDetails/Redux/action.js"
 
 const drawerWidth = 240;
 
@@ -164,6 +165,12 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       cursor: "pointer",
     }
+  },
+  logo: {
+    width: "50px",
+    "&:hover": {
+      cursor: "pointer"
+    }
   }
 }));
 
@@ -171,7 +178,12 @@ export default function SideBar() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const isAuth = useSelector((state) => state.login.isAuth);
+  const userId = useSelector((state) => state.login.userId);
+  const userData = useSelector((state) => state.account.userData);
   const [openSearchbar, setOpenSearchbar] = useState(false)
+
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleDrawerClose = () => {
     setOpen(false);
@@ -180,6 +192,14 @@ export default function SideBar() {
   const toggleSearchbar = () => {
     setOpenSearchbar(prev => !prev)
   }
+
+  const redirectToHome = () => {
+    history.push("/")
+  }
+
+  useEffect(() => {
+    dispatch(getAccountDetails(userId))
+  },[])
 
   return (
     <div className={classes.root}>
@@ -196,7 +216,8 @@ export default function SideBar() {
       >
         <div style={{ margin: "20px 0 0 15px", textAlign: "left" }}>
           <img
-            style={{ width: "50px" }}
+            className = {classes.logo}
+            onClick = { redirectToHome }
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/TechCrunch_logo.svg/1200px-TechCrunch_logo.svg.png"
           />
           <br />
@@ -206,7 +227,19 @@ export default function SideBar() {
           </Typography>
           <br />
           {isAuth ? (
-            <Typography>Progile Image</Typography>
+            <NavLink
+              to={{
+                pathname: `/my-account/${userId}`,
+              }}
+              activeStyle={{ color: "seagreen" }}
+              style={{
+                color: "gray",
+                textDecoration: "none",
+                fontSize: "18px",
+              }}
+            >
+              { userData.firstname }
+            </NavLink>
           ) : (
             <NavLink
               to="/login"

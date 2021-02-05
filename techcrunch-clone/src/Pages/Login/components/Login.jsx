@@ -3,7 +3,7 @@ import SignIn from './SignIn'
 import SignUp from './SignUp'
 import styles from "./login.module.css"
 import { useDispatch, useSelector } from 'react-redux'
-import { getUserSignup,isOpened } from '../Redux/action'
+import { getUserSignup,isOpened } from '../redux/action'
 import MuiAlert from '@material-ui/lab/Alert';
 import { Button, Snackbar, TextField } from "@material-ui/core";
 

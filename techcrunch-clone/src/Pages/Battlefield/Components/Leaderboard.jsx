@@ -19,7 +19,7 @@ const Leaderboard = (props) => {
     useEffect(()=>{
       setTimeout(()=>{
         setAnimatedLoader(false)
-      },3000)
+      },1500)
     })
     return (
         <div >

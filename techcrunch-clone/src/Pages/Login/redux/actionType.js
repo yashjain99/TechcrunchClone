@@ -11,3 +11,5 @@ export const SIGNUP="SIGNUP"
 export const IS_AUTH="IS_AUTH"
 export const IS_OPEN="IS_OPEN"
 export const CLOSE_OPEN="CLOSE_OPEN"
+
+export const LOGOUT_USER = "LOGOUT_USER"

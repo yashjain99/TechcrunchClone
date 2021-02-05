@@ -8,7 +8,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { isAuth, notOpened, signUp } from "../Redux/action";
+import { isAuth, notOpened, signUp } from "../redux/action";
 import {   AlertTitle } from '@material-ui/lab';
 import MuiAlert from '@material-ui/lab/Alert';
 
@@ -57,7 +57,7 @@ const SignIn = (props) => {
     const checkUser = userData.find((item) => item.email == email);
     // console.log(checkUser);
     if (checkUser) {
-      dispatch(isAuth(email))
+      dispatch(isAuth(checkUser.id))
       history.push("/");
     } else {
       dispatch(notOpened())

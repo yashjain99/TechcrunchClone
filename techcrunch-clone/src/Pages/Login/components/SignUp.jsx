@@ -8,7 +8,7 @@ import CakeOutlinedIcon from '@material-ui/icons/CakeOutlined';
 import { green } from '@material-ui/core/colors';
 import clsx from 'clsx';
 import {useDispatch} from "react-redux"
-import { addUserSignup, signIn } from "../Redux/action";
+import { addUserSignup, signIn } from "../redux/action";
 
 const useStyles = makeStyles((theme) => ({
     margin: {
@@ -34,9 +34,11 @@ const SignUp = (props) => {
   const [state,setState]=useState({
     firstname:"",
     lastname:"",
-    email:"",
+    userId:"",
     password:"1234",
-    birthyear:""
+    birthyear:"",
+    subscription: [],
+    eventsBooked: []
   })
 
   const handleChange=(e)=>{

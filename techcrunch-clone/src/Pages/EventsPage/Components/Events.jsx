@@ -26,7 +26,7 @@ export const Events = () =>{
     useEffect(()=>{
         setTimeout(() => {
             setAnimatedLoader(false)
-        },3000)
+        },1500)
 
         dispatch(getEventData())
     },[])
