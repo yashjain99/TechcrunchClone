@@ -65,8 +65,7 @@ const fetchNewsFailure = (error) => {
 export const getNewsBySearch = (payload) => (dispatch) => {
   dispatch(fetchNewsRequest());
 
-  return axios
-    .get(`https://techcrunch-clone.herokuapp.com/news?q=${payload}`)
+  axios.get(`https://techcrunch-clone.herokuapp.com/news?q=${payload}`)
     .then((res) => {
       console.log(res.data);
       dispatch(fetchNewsSuccess(res.data));

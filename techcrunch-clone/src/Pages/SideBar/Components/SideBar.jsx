@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useState} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -20,14 +20,11 @@ import clsx from "clsx";
 import NewDrawer from "./NewDrawer";
 import styles from "./SideBar.module.css";
 import { useSelector } from "react-redux";
+import { SearchBar } from "../../SearchBar/Components/SearchBar";
 
 const drawerWidth = 240;
 
 const links = [
-  {
-    link: "Search",
-    to: "/search",
-  },
   {
     link: "Startups",
     to: "/startup-news",
@@ -146,15 +143,44 @@ const useStyles = makeStyles((theme) => ({
   buttonNavbar: {
     padding: 10,
   },
+  searchButton: {
+    color: "gray", 
+    textDecoration: "none", 
+    fontSize: "18px", 
+    padding: "10px 0 10px 15px",
+    marginTop: "0",
+    marginBottom: "0",
+    "&:hover": {
+      cursor: "pointer",
+      backgroundColor: "#f2f2f2"
+    }
+  },
+  clear: {
+    color: "#ffffff",
+    backgroundColor: "#333333",
+    padding: "10px 0 10px 5px",
+    width: "100%",
+    fontSize: "18px",
+    "&:hover": {
+      cursor: "pointer",
+    }
+  }
 }));
 
 export default function SideBar() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const isAuth = useSelector((state) => state.login.isAuth);
+  const [openSearchbar, setOpenSearchbar] = useState(false)
+
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const toggleSearchbar = () => {
+    setOpenSearchbar(prev => !prev)
+  }
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -196,6 +222,27 @@ export default function SideBar() {
           )}
         </div>
         <List>
+          {
+            openSearchbar ? (
+              <div>
+                <div style = {{display: "flex"}}>
+                  <div className = {classes.clear}  onClick = { toggleSearchbar }>
+                    Close Search
+                  </div>
+                  <div className = {classes.clear} style = {{paddingRight: "0px"}} onClick = { toggleSearchbar }  > 
+                    X 
+                  </div>
+                </div>
+                <div style = {{width: "100%"}} >
+                  <SearchBar suggestionWidth = "100%" />
+                </div>
+              </div>
+            ) : (
+              <div className = {classes.searchButton} onClick = { toggleSearchbar }>
+                Search
+              </div>
+            )
+          }
           {links.map((text, index) => (
             <ListItem button key={text.link}>
               <NavLink

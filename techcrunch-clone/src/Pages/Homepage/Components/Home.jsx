@@ -31,7 +31,7 @@ const useStyles = makeStyles({
         justifyContent: "start",
         marginLeft: "-50px",
         marginTop: "20px",
-        backgroundColor:"white"
+        position: "relative"
     }
 })
 

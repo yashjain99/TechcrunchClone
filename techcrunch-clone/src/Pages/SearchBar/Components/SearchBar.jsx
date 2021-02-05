@@ -3,9 +3,11 @@ import styled from 'styled-components';
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getSearchQuery } from '../Redux/action';
+import {Grid} from "@material-ui/core";
 
 const SearchBarWrapper = styled.div`
-    border: 1px solid black;
+    border: 1px solid #03d206;
+    border-bottom-color: transparent;
     padding: 10px;
     display: flex;
     position: relative;
@@ -20,12 +22,13 @@ const Input = styled.input`
   border: none;
   outline: none;
   flex: 1;
+  width: 80%;
 `
 
 const RightSide = styled.div`
     display: flex;
     flex: 0 0 auto;
-    padding-right: 10px
+    padding-right: 10px;
 `
 
 const Spinner = styled.div`
@@ -52,10 +55,8 @@ const SuggestionBox = styled.div`
     flex-direction: column;
     flex: 0 0 auto;
     max-height: 150;
-    min-width: 550;
     overflow: auto;
-    border: 1px solid black;
-    border-top-color: transparent;
+    border: 1px solid #03d206;
     position: absolute;
     z-index: 20;
     background: white;
@@ -77,14 +78,15 @@ const SuggestionBox = styled.div`
 
 const DeleteTitleButton = styled.div`
     cursor: pointer;
+    padding-left: "10px"
 `
 
-export function SearchBar({ placeholder }) {
-    const [query, setQuery] = useState("");
+export function SearchBar({suggestionWidth}) {
     const [suggestions, setSuggestions] = useState([])
     const [loading, setLoading] = useState(false);
     const [title, setTitle] = useState("");
     const searchKeywords = useSelector(state => state.search.searchKeywords);
+    const [openSuggestionBox, setOpenSuggestionBox] = useState(true);
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -92,6 +94,7 @@ export function SearchBar({ placeholder }) {
     const handleInputChange = (e) => {
         setTitle(e.target.value);
         setLoading(true);
+        setOpenSuggestionBox(true)
         
         setTimeout(() => {
             setLoading(false)
@@ -105,6 +108,7 @@ export function SearchBar({ placeholder }) {
 
     const handleSearchResult = (text) => {
         history.push(`/search/${text}`)
+        setOpenSuggestionBox(false)
     }
 
     useEffect(() => {
@@ -141,6 +145,11 @@ export function SearchBar({ placeholder }) {
                     onChange = { handleInputChange }
                 />
                 <RightSide>
+                    <div>
+                        {
+                            loading && <Spinner />
+                        }
+                    </div>
                     {
                     title && (
                             <DeleteTitleButton onClick = { handleClear } > 
@@ -148,14 +157,11 @@ export function SearchBar({ placeholder }) {
                             </DeleteTitleButton>
                         )
                     }
-                    {
-                        loading && <Spinner />
-                    }
                 </RightSide>
             </SearchBarWrapper>
             {
-                !loading && (
-                    <SuggestionBox>
+                !loading && openSuggestionBox ? (
+                    <SuggestionBox style = {{width: suggestionWidth}} >
                         {
                             suggestions.map((item) => {
                                 console.log(item)
@@ -167,7 +173,7 @@ export function SearchBar({ placeholder }) {
                             })
                         }
                     </SuggestionBox>
-                )
+                ) : ""
             }
         </>
     )
