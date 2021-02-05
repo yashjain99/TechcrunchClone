@@ -53,17 +53,17 @@
     "tickets": [
       {
         "title": "Founder Ticket - July Event",
-        "price": "$199",
+        "price": 199,
         "details": "This ticket is for verified founders. Get access to all interactive sessions for the July 8&9 event including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership. Must be a valid founder, co-founder, or c-suite employee of your company."
       },
       {
         "title": "Innovator Ticket - July Event",
-        "price": "$299",
+        "price": 299,
         "details": "This ticket is for investors, and startup enthusiasts. Get access to all interactive sessions for the July 8&9 event including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership."
       },
       {
         "title": "Founder Ticket - DUAL Event",
-        "price": "$399",
+        "price": 399,
         "details": "This ticket is for verified founders. Get access to all interactive sessions for BOTH the April 1&2 and July 8&9 events including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership. Must be a valid founder, co-founder, or c-suite employee of your company."
       }
     ]
@@ -122,7 +122,7 @@
     "tickets": [
       {
         "title": "Founder Ticket - July Event",
-        "price": "$99",
+        "price": 99,
         "details": "This ticket is for verified founders. Get access to all interactive sessions for the July 8&9 event including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership. Must be a valid founder, co-founder, or c-suite employee of your company."
       }
     ]
@@ -176,17 +176,17 @@
     "tickets": [
       {
         "title": "Founder Ticket - July Event",
-        "price": "$199",
+        "price": 199,
         "details": "This ticket is for verified founders. Get access to all interactive sessions for the July 8&9 event including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership. Must be a valid founder, co-founder, or c-suite employee of your company."
       },
       {
         "title": "Innovator Ticket - July Event",
-        "price": "$299",
+        "price": 299,
         "details": "This ticket is for investors, and startup enthusiasts. Get access to all interactive sessions for the July 8&9 event including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership."
       },
       {
         "title": "Founder Ticket - DUAL Event",
-        "price": "$699",
+        "price": 699,
         "details": "This ticket is for verified founders. Get access to all interactive sessions for BOTH the April 1&2 and July 8&9 events including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership. Must be a valid founder, co-founder, or c-suite employee of your company."
       }
     ]
@@ -245,7 +245,7 @@
     "tickets": [
       {
         "title": "Founder Ticket - DUAL Event",
-        "price": "$399",
+        "price": 399,
         "details": "This ticket is for verified founders. Get access to all interactive sessions for BOTH the April 1&2 and July 8&9 events including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership. Must be a valid founder, co-founder, or c-suite employee of your company."
       }
     ]
@@ -304,17 +304,17 @@
     "tickets": [
       {
         "title": "Founder Ticket - July Event",
-        "price": "$199",
+        "price": 199,
         "details": "This ticket is for verified founders. Get access to all interactive sessions for the July 8&9 event including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership. Must be a valid founder, co-founder, or c-suite employee of your company."
       },
       {
         "title": "Innovator Ticket - July Event",
-        "price": "$299",
+        "price": 299,
         "details": "This ticket is for investors, and startup enthusiasts. Get access to all interactive sessions for the July 8&9 event including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership."
       },
       {
         "title": "Founder Ticket - DUAL Event",
-        "price": "$399",
+        "price": 399,
         "details": "This ticket is for verified founders. Get access to all interactive sessions for BOTH the April 1&2 and July 8&9 events including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership. Must be a valid founder, co-founder, or c-suite employee of your company."
       }
     ]

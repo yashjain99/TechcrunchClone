@@ -3,10 +3,17 @@ import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
 import ShareIcon from '@material-ui/icons/Share';
 import {Card, CardHeader, CardMedia,CardContent,Typography, CardActions,IconButton} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles(theme =>({
     root:{
         margin: "20px 0"
+    },
+    title:{
+      cursor : "pointer",
+      "&:hover": {
+       textDecoration : "underline"
+     }
     },
     media:{
         height:100,
@@ -27,14 +34,20 @@ const useStyles = makeStyles(theme =>({
 }))
 export const CardComponent = ({cardData}) =>{
   console.log(cardData);
+  const history = useHistory()
     const classes = useStyles()
+    const goToNewsDetail = () =>{
+      cardData.title && history.push(`/news/${cardData.id}`)
+    }
     return(
       <>
       {
         cardData.title &&
-        <Card className={classes.root}>
+        <Card className={classes.root} >
         <CardHeader
+          onClick={goToNewsDetail}
           title={cardData.title}
+          className={classes.title}
         />
         <CardContent className={classes.CardContent}>
         <CardMedia

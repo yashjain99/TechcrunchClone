@@ -25,6 +25,8 @@ import {
 import CreditCardIcon from "@material-ui/icons/CreditCard";
 
 import { Pin } from "./Pin";
+import { useDispatch, useSelector } from "react-redux";
+import { addEventDetails } from "../Redux/action";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -81,16 +83,24 @@ function getModalStyle() {
   };
 }
 
-export const Modal2 = () => {
+export const Modal2 = ({ qty, item, price }) => {
   const classes = useStyles();
   const [pin, setPin] = useState("");
   const [otp, setOtp] = useState(false);
   const history = useHistory();
+  const dispatch = useDispatch();
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
+  const userData = useSelector((state) => state.account.userData);
+  // console.log(userData);
 
-  const handleHome = () => {
-    history.push("/");
+  const handleSubmit = () => {
+    const payload = {
+      title: item.title,
+      price: price,
+    };
+    dispatch(addEventDetails(payload, userData.id));
+    history.push(`/my-account/${userData.id}`);
   };
 
   const body = (
@@ -103,11 +113,11 @@ export const Modal2 = () => {
         className={classes.btn}
         style={{
           height: "40px",
-          width: "80px",
+          width: "100px",
           margin: "30px 10px 10px 10px",
           fontWeight: "600",
         }}
-        onClick={handleHome}
+        onClick={handleSubmit}
       >
         Got it
       </Button>
@@ -204,13 +214,16 @@ export const Modal2 = () => {
                 <br />
               </Grid>
               <Grid item xs={6} sm={2}>
-                <Typography variant="caption"> US$5</Typography>
+                <Typography variant="caption"> ${price} </Typography>
               </Grid>
               <Grid item xs={6} sm={2}>
-                <Typography variant="caption"> 1</Typography>
+                <Typography variant="caption"> {qty} </Typography>
               </Grid>
               <Grid item xs={10} sm={2}>
-                <Typography variant="caption"> US$5</Typography>
+                <Typography variant="caption">
+                  {" "}
+                  ${Number(price) * Number(qty)}{" "}
+                </Typography>
               </Grid>
             </Grid>
           </Grid>
@@ -237,7 +250,7 @@ export const Modal2 = () => {
           >
             <Toolbar>
               <Typography variant="body1" className={classes.title1}>
-                Event Title
+                {item && item.title}
               </Typography>
             </Toolbar>
           </AppBar>

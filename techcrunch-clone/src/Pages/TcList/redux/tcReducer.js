@@ -9,7 +9,7 @@ import { GET_TCLIST_FAILURE, GET_TCLIST_REQUEST, GET_TCLIST_SUCCESS } from "./ac
   
  
  const tcReducer = (state=initState,{type,payload}) => {
-     console.log(type,payload)
+    //  console.log(type,payload)
     switch(type){
         case GET_TCLIST_REQUEST:
             return {

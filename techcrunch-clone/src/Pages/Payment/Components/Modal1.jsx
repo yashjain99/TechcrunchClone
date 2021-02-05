@@ -59,10 +59,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const Modal1 = ({ setOpen }) => {
+export const Modal1 = ({ setOpen, item, price, qty, setQty }) => {
   const classes = useStyles();
-  const [qty, setQty] = useState(1);
-
+  // const [qty, setQty] = useState(1);
+  const handleChange = (e) => {
+    setQty(e.target.value);
+  };
   return (
     <Paper
       style={{
@@ -80,7 +82,7 @@ export const Modal1 = ({ setOpen }) => {
         >
           <Toolbar>
             <Typography variant="body1" className={classes.title1}>
-              Event Title
+              {item && item.title}
             </Typography>
           </Toolbar>
         </AppBar>
@@ -130,10 +132,12 @@ export const Modal1 = ({ setOpen }) => {
               </Typography>
             </Grid>
             <Grid item xs={6} sm={1}>
-              <Typography variant="body1">US$5</Typography>
+              <Typography variant="body1">${price}</Typography>
             </Grid>
             <Grid item xs={6} sm={1}>
-              <Typography variant="body1">US$5</Typography>
+              <Typography variant="body1">
+                ${Number(price) * Number(qty)}
+              </Typography>
             </Grid>
             <Grid item xs={10} sm={2}>
               <TextField
@@ -141,7 +145,7 @@ export const Modal1 = ({ setOpen }) => {
                 // label="Native select"
                 value={qty}
                 size="small"
-                // onChange={handleChange}
+                onChange={handleChange}
                 variant="outlined"
               >
                 {[1, 2, 3, 4, 5].map((option) => (

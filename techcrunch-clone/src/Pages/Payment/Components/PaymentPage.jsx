@@ -30,6 +30,7 @@ import { Modal1 } from "./Modal1";
 import { Modal2 } from "./Modal2";
 import CloseIcon from "@material-ui/icons/Close";
 import SideBar from "../../SideBar/Components/SideBar";
+import { useSelector } from "react-redux";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -84,10 +85,17 @@ function getModalStyle() {
     transform: `translate(-${top}%, -${left}%)`,
   };
 }
-export default function PaymentPage() {
+export default function PaymentPage(props) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [modalStyle] = React.useState(getModalStyle);
+  const { price } = props.match.params;
+  const { id } = props.match.params;
+  const events = useSelector((state) => state.mainevents.events);
+  var ans = events && events.filter((event) => Number(event.id) == Number(id));
+  const item = ans[0];
+
+  const [qty, setQty] = useState(1);
 
   // const handleOpen = () => {
   //   setOpen(true);
@@ -102,7 +110,8 @@ export default function PaymentPage() {
   //     <PaymentFinal />
   //   </div>
   // );
-  console.log("open", open);
+
+  console.log("-----data-----------", item);
   return (
     <Container maxWidth="xl" className={classes.container}>
       <Box>
@@ -119,7 +128,7 @@ export default function PaymentPage() {
             <MenuIcon />
           </IconButton> */}
           <Typography variant="h6" className={classes.title}>
-            Event Title
+            {item && item.title}
           </Typography>
           <NavLink
             to="/"
@@ -136,7 +145,17 @@ export default function PaymentPage() {
         Register Now
       </Typography>
 
-      {open ? <Modal2 /> : <Modal1 setOpen={setOpen} />}
+      {open ? (
+        <Modal2 item={item} price={price} qty={qty} />
+      ) : (
+        <Modal1
+          setOpen={setOpen}
+          qty={qty}
+          setQty={setQty}
+          item={item}
+          price={price}
+        />
+      )}
 
       {/* <Modal open={open} onClose={handleClose}>
         {body}

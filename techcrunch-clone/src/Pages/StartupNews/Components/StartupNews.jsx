@@ -38,7 +38,7 @@ export function StartupNews() {
     useEffect(() => {
         setTimeout(() => {
             setAnimatedLoader(false)
-        },3000)
+        },1500)
 
         dispatch(getStartupNews())
         

@@ -25,7 +25,7 @@ export const mainEventsReducer = (state = initState, { type, payload }) => {
         ...state,
         isLoading: false,
         error: false,
-        events: [payload],
+        events: payload,
       };
     case FETCH_EVENTS_FAILURE:
       return {

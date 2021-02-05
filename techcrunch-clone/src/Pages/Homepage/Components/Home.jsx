@@ -31,7 +31,7 @@ const useStyles = makeStyles({
         justifyContent: "start",
         marginLeft: "-50px",
         marginTop: "20px",
-        backgroundColor:"white"
+        position: "relative"
     }
 })
 
@@ -50,7 +50,7 @@ export function Home() {
     useEffect(() => {
         setTimeout(() => {
             setAnimatedLoader(false)
-        },3000)
+        },1500)
 
         dispatch(getNewsHeadlines())
         
