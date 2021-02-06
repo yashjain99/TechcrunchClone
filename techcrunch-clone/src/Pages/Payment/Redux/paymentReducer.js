@@ -1,33 +1,33 @@
 import {
-  FETCH_ACCOUNT_DETAILS_REQUEST,
-  FETCH_ACCOUNT_DETAILS_SUCCESS,
-  FETCH_ACCOUNT_DETAILS_FAILURE,
-} from "./actionTypes";
+  ADD_EVENT_DETAILS_REQ,
+  ADD_EVENT_DETAILS_SUCCESS,
+  ADD_EVENT_DETAILS_FAILURE,
+} from "./actionType";
 
 const initState = {
+  data: [],
   isLoading: false,
-  userData: [],
   error: false,
 };
 
-export const accountReducer = (state = initState, { type, payload }) => {
-  // console.log(type, payload)
+export const paymentReducer = (state = initState, { type, payload }) => {
+  //   console.log(type, payload);
 
   switch (type) {
-    case FETCH_ACCOUNT_DETAILS_REQUEST:
+    case ADD_EVENT_DETAILS_REQ:
       return {
         ...state,
         isLoading: true,
         error: false,
       };
-    case FETCH_ACCOUNT_DETAILS_SUCCESS:
+    case ADD_EVENT_DETAILS_SUCCESS:
       return {
         ...state,
         isLoading: false,
         error: false,
-        userData: payload,
+        events: payload,
       };
-    case FETCH_ACCOUNT_DETAILS_FAILURE:
+    case ADD_EVENT_DETAILS_FAILURE:
       return {
         ...state,
         isLoading: false,

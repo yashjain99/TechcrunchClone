@@ -8,12 +8,7 @@ import { useParams, useHistory, Redirect } from "react-router-dom";
 import { Loader } from "../../Homepage/Components/Loader";
 import SideBar from "../../SideBar/Components/SideBar";
 import { getAccountDetails } from "../Redux/action";
-import {
-  Box,
-  Container,
-  Grid,
-  makeStyles
-} from "@material-ui/core";
+import { Box, Container, Grid, makeStyles } from "@material-ui/core";
 import { logoutUser } from "../../Login/redux/action";
 import FooterPage from "../../Footer/Components/FooterPage";
 import { getNewsHeadlines } from "../../Homepage/Redux/action";
@@ -68,9 +63,9 @@ const AccountDetailsPage = () => {
   const [bool8, setBool8] = useState(false);
   
   const [animatedLoader, setAnimatedLoader] = useState(true);
-  const userData = useSelector(state => state.account.userData);
-  const isAuth = useSelector(state => state.login.isAuth);
-  const newsData = useSelector(state => state.home.newsHeadlines);
+  const userData = useSelector((state) => state.account.userData);
+  const isAuth = useSelector((state) => state.login.isAuth);
+  const newsData = useSelector((state) => state.home.newsHeadlines);
 
   const classes = useStyles();
 
@@ -182,47 +177,46 @@ const AccountDetailsPage = () => {
   }
 
   const handleLogout = () => {
-    dispatch(logoutUser())
-  }
+    dispatch(logoutUser());
+  };
 
   const redirectToNews = (id) => {
-    history.push(`/news/${id}`)
-  }
+    history.push(`/news/${id}`);
+  };
 
-  let userCommentsData = []
+  let userCommentsData = [];
   let flag = false;
 
-  newsData.map((item) => { item.comments.map((item) => {
-    if(item.email == userData.email) {
-      flag = true;
-      return
+  newsData.map((item) => {
+    item.comments.map((item) => {
+      if (item.email == userData.email) {
+        flag = true;
+        return;
+      } else {
+        flag = false;
+      }
+    });
+    if (flag) {
+      userCommentsData.push(item);
     }
-    else {
-      flag = false;
-    }
-  })
-  if(flag) {
-    userCommentsData.push(item)
-  }
-  flag=false;
-})
+    flag = false;
+  });
 
-console.log(userCommentsData);
-  
+  console.log(userCommentsData);
+
   useEffect(() => {
     setTimeout(() => {
-        setAnimatedLoader(false)
-    },1500)
+      setAnimatedLoader(false);
+    }, 1500);
 
     dispatch(getAccountDetails(id));
     dispatch(getNewsHeadlines());
-
-},[])
-console.log(userData.newsLetters)
+  }, []);
+  console.log(userData.newsLetters);
   return userData && isAuth ? (
-    <Container maxWidth = "xl" className = { classes.container }>
+    <Container maxWidth="xl" className={classes.container}>
       <Box>
-          <SideBar />
+        <SideBar />
       </Box>
       <Box style = {{display: "flex", flexDirection: "column"}} >
           {
@@ -294,15 +288,15 @@ console.log(userData.newsLetters)
                             )
                           })
                         }
-                        {/* {
-                          userData.events?.map((item, index) => {
+                        {
+                          userData.eventsBooked?.map((item, index) => {
                             return(
                               <div key = {item.id} style = {style2} className = "password" >
-                                <b>{index + 1 + "."}</b> {item.title} {item.price} <hr/>
+                                <b>{index + 1 + "."}</b> {item.title}  {item.price} <hr/>
                               </div>
                             )
                           })
-                        } */}
+                        }
                         {
                           userCommentsData?.map((item, index) => {
                             return(
