@@ -13,7 +13,7 @@ import {
 } from "@material-ui/core";
 import { Loader } from "../../Homepage/Components/Loader";
 import { LargeNewsBlock } from "../../Homepage/Components/LargeNewsBlock";
-import Sidebar from "../../SideBar/Components/SideBar";
+import SideBar from "../../SideBar/Components/SideBar";
 import FooterPage from "../../Footer/Components/FooterPage";
 
 const Cont = styled.div`
@@ -52,13 +52,18 @@ export function StartupNews() {
   }, []);
   return (
     <Container maxWidth="xl">
-      {animatedLoader ? (
-        <Loader />
-      ) : (
-        <Box>
+      <Box>
+        <SideBar />
+      </Box>
+      <Box>
+        {
+          animatedLoader ? (
+            <Box style = {{display: "flex", margin: "0 0 0 -300px"}} >
+              <Loader/>
+            </Box>
+          ) : (
           <Cont>
             <div>
-              <Sidebar />
             </div>
             <div style={{ marginLeft: "250px", marginTop: "-100px" }}>
               <Grid container>
@@ -80,8 +85,8 @@ export function StartupNews() {
               </div>
             </div>
           </Cont>
-        </Box>
-      )}
+        )}
+      </Box>
     </Container>
   );
 }

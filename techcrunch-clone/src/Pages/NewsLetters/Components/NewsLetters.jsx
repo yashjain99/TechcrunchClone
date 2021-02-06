@@ -19,6 +19,9 @@ const useStyles = makeStyles(theme =>({
         justifyContent: "flex-start",
         outline : "none",
         border : 0,
+        outline: "none",
+        border: "none",
+        height: "50px",
         "&:hover":{
             background : "transparent",
 
@@ -122,6 +125,7 @@ export const Newsletters = () =>{
       const history = useHistory()
       const classes = useStyles()
       const dispatch = useDispatch()
+      
       useEffect(()=>{
           setTimeout(() => {
               setAnimatedLoader(false)
@@ -141,7 +145,9 @@ export const Newsletters = () =>{
           }
       })
       console.log(arr);
-
+      if(userData.newsLetters) {
+         arr = [...userData.newsLetters, ...arr]
+      }
     const handleChange = (event) => {
       setState({ ...state, [event.target.name]: event.target.checked });
       
@@ -151,13 +157,20 @@ export const Newsletters = () =>{
         console.log("handleAddNewsLetters func called");
        dispatch(addNewsLetters(userData.id, arr))
        setShowMsg(true)
+
+       setTimeout(() => {
+        history.push(`/my-account/${userData.id}`)
+       },2000)
     }
     console.log(window.innerWidth);
     return(
        <Box>
         {
-            animatedLoader ? (<Loader/>)
-                        :(
+            animatedLoader ? (
+                <Box style = {{display: "flex", margin: "20px 0 0 -300px"}} >
+                    <Loader/>
+                </Box>
+                ) : (
                             <NewslettersWrapper>
           
                             <FormWrapper >

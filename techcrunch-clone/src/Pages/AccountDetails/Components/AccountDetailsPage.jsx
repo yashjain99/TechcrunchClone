@@ -39,6 +39,20 @@ const useStyles = makeStyles({
       marginLeft: "0px",
       marginTop: "20px",
       width: "100%"
+  },
+  subscriptionButton: {
+    height: "50px", 
+    width: "150px",
+    color: "white",
+    fontSize: "18px",
+    fontWeight: "900",
+    textAlign: "center",
+    lineHeight: "50px",
+    background: "linear-gradient(to right,#01a663,#03d206)",
+
+    "&:hover" : {
+      cursor: "pointer",
+    }
   }
 })
 
@@ -47,6 +61,11 @@ const AccountDetailsPage = () => {
   const [bool2, setBool2] = useState(false);
   const [bool3, setBool3] = useState(false);
   const [bool4, setBool4] = useState(false);
+
+  const [bool5, setBool5] = useState(true);
+  const [bool6, setBool6] = useState(false);
+  const [bool7, setBool7] = useState(false);
+  const [bool8, setBool8] = useState(false);
   
   const [animatedLoader, setAnimatedLoader] = useState(true);
   const userData = useSelector(state => state.account.userData);
@@ -66,38 +85,101 @@ const AccountDetailsPage = () => {
     setBool2(false);
     setBool3(false);
     setBool4(false);
+    setBool5(!bool5);
+    setBool6(false);
+    setBool7(false);
+    setBool8(false);
+
   };
   const handleClick2 = () => {
     setBool1(false);
     setBool2(!bool2);
     setBool3(false);
     setBool4(false);
+    setBool5(false);
+    setBool6(!bool6);
+    setBool7(false);
+    setBool8(false);
   };
   const handleClick3 = () => {
     setBool1(false);
     setBool2(false);
     setBool3(!bool3);
     setBool4(false);
+    setBool5(false);
+    setBool6(false);
+    setBool7(!bool7);
+    setBool8(false);
   };
   const handleClick4 = () => {
     setBool1(false);
     setBool2(false);
     setBool3(false);
     setBool4(!bool4);
+    setBool5(false);
+    setBool6(false);
+    setBool7(false);
+    setBool8(!bool8);
   };
 
   const style1 = {};
-  if (bool1) style1.display = "inline";
-  else style1.display = "none";
+  if (bool1) {
+    style1.display = "inline";
+  }
+  else {
+    style1.background = "none";
+    style1.display = "none";
+  }
+
   const style2 = {};
-  if (bool2) style2.display = "inline";
-  else style2.display = "none";
+  if (bool2) {
+    style2.display = "inline";
+  }
+  else {
+    style2.background = "none";
+    style2.display = "none";
+  }
   const style3 = {};
-  if (bool3) style3.display = "inline";
-  else style3.display = "none";
+  if (bool3) {
+    style3.display = "inline";
+  }
+  else {
+    style3.background = "none";
+    style3.display = "none";
+  }
   const style4 = {};
-  if (bool4) style4.display = "inline";
-  else style4.display = "none";
+  if (bool4) {
+    style4.display = "inline";
+  }
+  else {
+    style4.background = "none";
+    style4.display = "none";
+  }
+
+  const style5 = {};
+  if (!bool5) {
+    style5.background = "none";
+    style5.color = "black";
+
+  }
+
+  const style6 = {};
+  if (!bool6) {
+    style6.background = "none";
+    style6.color = "black";
+  }
+
+  const style7 = {};
+  if (!bool7) {
+    style7.background = "none";
+    style7.color = "black";
+  }
+
+  const style8 = {};
+  if (!bool8) {
+    style8.background = "none";
+    style8.color = "black";
+  }
 
   const handleLogout = () => {
     dispatch(logoutUser())
@@ -187,67 +269,69 @@ console.log(userData.newsLetters)
                     <br/>
                     <h3> Subscription Details </h3>
                     <br/>
-                    <div style = {{display: "flex", justifyContent: "space-around"}} >
-                      <button onClick={handleClick1} style={{height: "50px", width: "120px", backgroundColor: "lightgrey", outline: "none"  }}>
+                    <div style = {{display: "flex", justifyContent: "space-between"}} >
+                      <div onClick={handleClick1} className = {classes.subscriptionButton} style = {style5}  >
                         Newsletter
-                      </button>
-                      <button onClick={handleClick2} style={{height: "50px", width: "120px", backgroundColor: "lightgrey", outline: "none"  }}>
+                      </div>
+                      <div onClick={handleClick2} className = {classes.subscriptionButton} style = {style6} >
                         Events Booked
-                      </button>
-                      <button onClick={handleClick3} style={{height: "50px", width: "120px", backgroundColor: "lightgrey", outline: "none"  }}>
+                      </div>
+                      <div onClick={handleClick3} className = {classes.subscriptionButton} style = {style7} >
                         User Activity
-                      </button>
-                      <button onClick={handleClick4} style={{height: "50px", width: "120px", backgroundColor: "lightgrey", outline: "none"  }}>
+                      </div>
+                      <div onClick={handleClick4} className = {classes.subscriptionButton} style = {style8} >
                         Support
-                      </button>
+                      </div>
                     </div>
-                    <div style = {{ fontSize: "18px", height: "300px", width: "700px", margin: "13px 0", border: "1px solid #03d206", padding: "15px"}} >
-                      {
-                        userData.newsLetters?.map((item, index) => {
-                          return(
-                            <div key = {item.id} style = {style1} >
-                              {`${index + 1} ${item.title}`}
-                            </div>
-                          )
-                        })
-                      }
-                      {/* {
-                        userData.events?.map((item, index) => {
-                          return(
-                            <div key = {item.id} style = {style2} >
-                              {`${index + 1} ${item.title} ${item.price}`}
-                            </div>
-                          )
-                        })
-                      } */}
-                      {
-                        userCommentsData?.map((item, index) => {
-                          return(
-                            <div key = {item.id} style = {style3} onClick = {() => redirectToNews(item.id)} >
-                              {`${index + 1} ${item.title}`}
-                            </div>
-                          )
-                        })
-                      }
-                      <div style = {style4} >
-                        <div style = {{fontSize: "20px"}}><b>Customer Support</b></div>
-                        <br/>
-                        <div>
-                          For information on frequently asked questions, please visit our <a href = "">Help Center</a>.
-                        </div>
-                        <br/>
-                        <div>
-                          To contact our customer support team directly, please send an email to <a href = "">extracrunch@techcrunch.com</a>.
-                        </div>
-                        <br/>
-                        <div>
-                          Please visit our <a href = "">feedback forum</a> to let us know how we can improve your Extra Crunch experience.
+                    <div style = {{overflow: "hidden"}} >
+                      <div style = {{ fontSize: "18px", height: "300px", width: "700px", margin: "13px 0", padding: "15px", overflowY: "scroll"}} >
+                        {
+                          userData.newsLetters?.map((item, index) => {
+                            return(
+                              <div key = {item.id} style = {style1} className = "password" >
+                                <b>{index + 1 + "."}</b>  {item.title} <hr/>
+                              </div>
+                            )
+                          })
+                        }
+                        {/* {
+                          userData.events?.map((item, index) => {
+                            return(
+                              <div key = {item.id} style = {style2} className = "password" >
+                                <b>{index + 1 + "."}</b> {item.title} {item.price} <hr/>
+                              </div>
+                            )
+                          })
+                        } */}
+                        {
+                          userCommentsData?.map((item, index) => {
+                            return(
+                              <div key = {item.id} style = {style3} className = "password" onClick = {() => redirectToNews(item.id)} >
+                                <b>{index + 1 + "."}</b> {item.title} <hr/>
+                              </div>
+                            )
+                          })
+                        }
+                        <div style = {style4} >
+                          <div style = {{fontSize: "20px"}}><b>Customer Support</b></div>
+                          <br/>
+                          <div>
+                            For information on frequently asked questions, please visit our <a href = "">Help Center</a>.
+                          </div>
+                          <br/>
+                          <div>
+                            To contact our customer support team directly, please send an email to <a href = "">extracrunch@techcrunch.com</a>.
+                          </div>
+                          <br/>
+                          <div>
+                            Please visit our <a href = "">feedback forum</a> to let us know how we can improve your Extra Crunch experience.
+                          </div>
                         </div>
                       </div>
                     </div>
-                    <button style={{ float: "right", height: "50px", width: "120px", backgroundColor: "lightgrey"}} onClick = { handleLogout } >
+                    <div className = {classes.subscriptionButton} onClick = { handleLogout } >
                       Logout ❘➜
-                    </button>
+                    </div>
                     <FooterPage />
                   </Wrapper>
                 )
