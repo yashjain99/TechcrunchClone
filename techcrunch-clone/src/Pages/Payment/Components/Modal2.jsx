@@ -100,7 +100,7 @@ export const Modal2 = ({ qty, item, price }) => {
       price: price,
     };
     var array = [];
-    if (userData.events) {
+    if (userData.eventsBooked) {
       array = [...userData.eventsBooked, payload];
     }
     dispatch(addEventDetails(array, userData.id));
