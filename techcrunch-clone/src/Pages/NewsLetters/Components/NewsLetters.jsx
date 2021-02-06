@@ -166,7 +166,7 @@ export const Newsletters = () =>{
                                         <img src="https://media.sailthru.com/134/1k2/c/l/5c1d5733871c3.png" alt="logo"/>
                                         <h2>Newsletters</h2>
                                         {
-                                            showMsg ? <h4 style={{color:"green"}}>Thanks for submit it is added in you acount page</h4>:null
+                                            showMsg ? <h4 style={{color:"green"}}>Thanks for submit it is added in you account page</h4>:null
                                         }
                                         {
                                             isAuth ? 
