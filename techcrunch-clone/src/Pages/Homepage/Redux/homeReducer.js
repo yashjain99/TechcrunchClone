@@ -11,7 +11,7 @@ const initState = {
 }
 
 export const homeReducer = (state = initState, {type, payload}) => {
-    console.log(type, payload)
+    // console.log(type, payload)
 
     switch(type) {
         case FETCH_NEWS_HEADLINE_REQUEST: 

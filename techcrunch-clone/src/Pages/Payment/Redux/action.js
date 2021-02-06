@@ -21,7 +21,7 @@ export const addEventDetails = (payload, id) => (dispatch) => {
     method: "PATCH",
     url: `https://techcrunch-clone.herokuapp.com/signUpUsers/${id}`,
     data: {
-      events: payload,
+      eventsBooked: payload,
     },
   })
     .then((res) => dispatch(addEventSuccess()))

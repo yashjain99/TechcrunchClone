@@ -16,7 +16,7 @@ import { makeStyles } from "@material-ui/styles";
 import { addComment, deleteComment, editComment } from "../Redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { EditCommentBox } from "./EditCommentBox";
-import { getUserSignup } from "../../Login/Redux/action";
+import { getUserSignup } from "../../Login/redux/action";
 import PersonIcon from "@material-ui/icons/Person";
 
 const useStyles = makeStyles((theme) => ({
@@ -70,13 +70,12 @@ export const CommentBox = ({ data }) => {
   useEffect(() => {
     dispatch(getUserSignup());
   }, []);
-  const userData = useSelector((state) => state.login.userData);
-  const userEmail = useSelector((state) => state.login.email);
+  const user = useSelector((state) => state.account.userData);
   const isAuth = useSelector((state) => state.login.isAuth);
-  let user = userData.find((item) => item.email === userEmail);
-  console.log(userData);
+  // console.log(userData);
 
   const username = isAuth && `${user.firstname} ${user.lastname}`;
+  const email = isAuth && `${user.email}`;
   const handleOpenAnchorEl = (event) => {
     setAnchorEl(event.currentTarget);
     console.log(anchorEl);
@@ -100,6 +99,7 @@ export const CommentBox = ({ data }) => {
       id: uuid(),
       comment: commentText,
       username: username,
+      email: email,
     };
     let updatedComments = [...data.comments, payload];
     dispatch(addComment(data.id, updatedComments));

@@ -96,7 +96,7 @@ export const News = () =>{
                     <Grid container >
 
                         <Container>
-                            <Grid item xs={12} sm={8}>
+                            <Grid item xs={12} sm={12} xl={8} lg={8}>
                             <Header>
                                 <h1>{news.title}</h1>
 

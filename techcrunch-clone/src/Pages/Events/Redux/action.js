@@ -29,7 +29,7 @@ export const getEvents = () => (dispatch) => {
   dispatch(fetchEventsRequest());
 
   return axios
-    .get("http://localhost:3004/events")
+    .get("https://techcrunch-clone.herokuapp.com/eventsData")
     .then((res) => {
       // console.log(res.data);
       dispatch(fetchEventsSuccess(res.data));

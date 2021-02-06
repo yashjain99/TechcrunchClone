@@ -3,11 +3,12 @@ import styled from "styled-components";
 import CloseIcon from "@material-ui/icons/Close";
 import { IconButton, Box } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
-import { getNewsLettes } from "../Redux/actions";
+import { useHistory } from "react-router-dom";
+import { getNewsLettes, addNewsLetters } from "../Redux/actions";
 import NewsLettersList from "./NewsLettersList";
 import { makeStyles } from "@material-ui/styles";
 import { Loader } from "../../Homepage/Components/Loader";
-import { getUserSignup } from "../../Login/Redux/action";
+import { getUserSignup, notOpened } from "../../Login/redux/action";
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -15,6 +16,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-start",
+    outline: "none",
+    border: 0,
     "&:hover": {
       background: "transparent",
     },
@@ -25,8 +28,9 @@ const NewslettersWrapper = styled.div`
   width: 100%;
   padding: 20px;
 `;
+// width : ${props => props.media ? "90%" : "65%"};
 const FormWrapper = styled.div`
-  width: 65%;
+  width: 68%;
   background: white;
   margin: auto;
   & a {
@@ -93,6 +97,7 @@ export const Newsletters = () => {
     (state) => state.newsletters.newsLettersData
   );
   const [animatedLoader, setAnimatedLoader] = useState(true);
+  const [showMsg, setShowMsg] = useState(false);
   const [state, setState] = React.useState({
     1: false,
     2: false,
@@ -108,12 +113,11 @@ export const Newsletters = () => {
     12: false,
     13: false,
   });
-  console.log(state);
-  let arr = [];
 
   //login info from login reducer
-  const userEmail = useSelector((state) => state.login.email);
+  const userData = useSelector((state) => state.account.userData);
   const isAuth = useSelector((state) => state.login.isAuth);
+  const history = useHistory();
   const classes = useStyles();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -124,10 +128,28 @@ export const Newsletters = () => {
     dispatch(getUserSignup());
   }, []);
 
+  console.log(state);
+  let arr = [];
+  newslettersData &&
+    newslettersData.map((item) => {
+      let id = item.id;
+      let stateVals = Object.values(state);
+      if (stateVals[Number(id) - 1]) {
+        arr.push(item);
+      }
+    });
+  console.log(arr);
+
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
-  console.log(newslettersData);
+
+  const handleAddNewsLetters = () => {
+    console.log("handleAddNewsLetters func called");
+    dispatch(addNewsLetters(userData.id, arr));
+    setShowMsg(true);
+  };
+  console.log(window.innerWidth);
   return (
     <Box>
       {animatedLoader ? (
@@ -142,13 +164,21 @@ export const Newsletters = () => {
                   alt="logo"
                 />
                 <h2>Newsletters</h2>
+                {showMsg ? (
+                  <h4 style={{ color: "green" }}>
+                    Thanks for submit it is added in you account page
+                  </h4>
+                ) : null}
                 {isAuth ? (
                   <p>
-                    Hey there, <span>{userEmail}</span>!
+                    Hey there, <span>{userData.email}</span>!
                   </p>
                 ) : null}
               </div>
-              <IconButton className={classes.icon}>
+              <IconButton
+                className={classes.icon}
+                onClick={() => history.push("/")}
+              >
                 <CloseIcon />
               </IconButton>
             </Header>
@@ -158,7 +188,11 @@ export const Newsletters = () => {
               newslettersData={newslettersData}
             />
             <Button>
-              {isAuth ? <button>UPDATE</button> : <button>Login</button>}
+              {isAuth ? (
+                <button onClick={handleAddNewsLetters}>UPDATE</button>
+              ) : (
+                <button onClick={() => history.push("/login")}>Login</button>
+              )}
             </Button>
             <hr />
             <Block>

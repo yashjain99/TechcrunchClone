@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     justifyContent: "start",
-    marginLeft: "-50px",
+    marginLeft: "0px",
     marginTop: "20px",
   },
 }));
@@ -46,13 +46,13 @@ export const Events = (props) => {
             <Grid container spacing={2}>
               {events.featuredEvents &&
                 events.featuredEvents.map((item) => (
-                  <Grid key={item.id} item xs={12} sm={4} xl={4}>
+                  <Grid key={item.id} item xs={8} sm={4} xl={4}>
                     <FeaturedEvents data={item} props={props} />
                   </Grid>
                 ))}
             </Grid>
-            <NextEvents events={events} />
-            <PastEvents events={events} />
+            <NextEvents events={events} props={props} />
+            <PastEvents events={events} props={props} />
           </Box>
         )}
       </Box>

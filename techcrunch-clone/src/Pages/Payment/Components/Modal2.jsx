@@ -99,15 +99,17 @@ export const Modal2 = ({ qty, item, price }) => {
       title: item.title,
       price: price,
     };
-    dispatch(addEventDetails(payload, userData.id));
+    var array = [];
+    if (userData.events) {
+      array = [...userData.eventsBooked, payload];
+    }
+    dispatch(addEventDetails(array, userData.id));
     history.push(`/my-account/${userData.id}`);
   };
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      {/* <h2 id="simple-modal-title">Text in a modal</h2> */}
-      <p id="simple-modal-description">Payment Successful.</p>
-      {/* <SimpleModal /> */}
+      <p>Payment Successful.</p>
       <Button
         variant="contained"
         className={classes.btn}
@@ -143,14 +145,18 @@ export const Modal2 = ({ qty, item, price }) => {
 
   return (
     <Box>
-      {/* <Button
+      <Button
         variant="outlined"
         className={classes.btn}
         onClick={handleBack}
-        style={{ height: "44px", width: "150px" }}
+        style={{
+          height: "40px",
+          width: "120px",
+          margin: "0 0 10px 20px",
+        }}
       >
         Back
-      </Button> */}
+      </Button>
       <Paper
         style={{
           border: "1px solid black",
