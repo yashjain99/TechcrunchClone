@@ -53,17 +53,268 @@
     "tickets": [
       {
         "title": "Founder Ticket - July Event",
-        "price": "$199",
+        "price": 199,
         "details": "This ticket is for verified founders. Get access to all interactive sessions for the July 8&9 event including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership. Must be a valid founder, co-founder, or c-suite employee of your company."
       },
       {
         "title": "Innovator Ticket - July Event",
-        "price": "$299",
+        "price": 299,
         "details": "This ticket is for investors, and startup enthusiasts. Get access to all interactive sessions for the July 8&9 event including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership."
       },
       {
         "title": "Founder Ticket - DUAL Event",
-        "price": "$399",
+        "price": 399,
+        "details": "This ticket is for verified founders. Get access to all interactive sessions for BOTH the April 1&2 and July 8&9 events including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership. Must be a valid founder, co-founder, or c-suite employee of your company."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "header": ["Early Stage", "Operations", "&", "Fundraising"],
+    "date": "Jun 9",
+    "title": "Diversity, inclusion and the human labor that powers tech",
+    "subtitle": "Explore inclusive hiring, access to funding for Black people, Latinos, Latinas and Indigenous people, and workplace tools to foster inclusion and belonging. We’ll also examine the experiences of gig workers and formerly incarcerated people who are often left out of Silicon Valley’s wealth cycle. Rounding out the program will be a discussion about the role of venture capital in creating a more inclusive tech ecosystem.",
+    "title1": "Fireside Chats and Panel Discussions",
+    "subtitle1": "TechCrunch's editors will explore inclusive hiring, the gig worker experience, the justice system and more in a series of interviews with key figures in the technology community.",
+    "avatar1": "https://techcrunch.com/wp-content/uploads/2020/09/48268270296_44e0ff119a_k.jpg?w=400&h=220&crop=1.jpg",
+    "title2": "Q&A with the experts during breakout sessions",
+    "subtitle2": "Dozens of breakout sessions will be led by deeply credentialed experts followed by engaged Q&A. This version of the event will cover startup disciplines including fundraising, go-to-market strategies, term sheet construction, growth tactics, interacting with the press and more.",
+    "avatar2": "https://techcrunch.com/wp-content/uploads/2020/02/QA-header.png?w=400&h=220&crop=1.jpg",
+    "news": {
+      "title": "Learn how to creatively navigate remote fundraising from top investors",
+      "subtitle": "As the COVID-19 era drags on, first-time founders need to find new ways to raise capital needed to keep startups offensive (and defense). Luckily, a trio of investors from top venture capital firms...",
+      "avatar": "https://techcrunch.com/wp-content/uploads/2020/01/GettyImages-1127726488.jpg?w=400&h=220&crop=1.jpg",
+      "author": "Megan Rose Dickey",
+      "time": "12:15 AM GMT+5:30•February 3, 2021"
+    },
+    "speakers": [
+      {
+        "name": "Cynthia L. Bennett",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/vqcljrua5fpqntrewfk1.jpg?w=200&h=200&crop=1",
+        "post": "Postdoctoral Researcher, Carnegie Mellon University Human-Computer Interaction Institute"
+      },
+      {
+        "name": "Naj Austin",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/y28p0rvucoeodfe9e7as.png?w=200&h=200&crop=1",
+        "post": "Founder &CEO, Somewhere Good, Ethels Club"
+      },
+      {
+        "name": "Parul Koul",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/dniavtmdxpc3p9fkun8j.jpg?w=200&h=200&crop=1",
+        "post": "Software Engineer, Google"
+      },
+      {
+        "name": "Christian Smalls",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/esbvexv3l08dqmtgcakl.jpg?w=200&h=200&crop=1",
+        "post": "Founder, The Congress of Essential Workers"
+      },
+      {
+        "name": "Jessica E. Martinez",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/nqltfrnkkn4wluk1dlhu.jpg?w=200&h=200&crop=1",
+        "post": "Co-Executive Director, National Institute for Occupational Safety and Health"
+      },
+      {
+        "name": "Clarissa Redwine",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/jtrpfezfxo3l1ho085ng.jpg?w=200&h=200&crop=1",
+        "post": "Design & Technology Outreach Lead, Kickstarter"
+      }
+    ],
+    "tickets": [
+      {
+        "title": "Founder Ticket - July Event",
+        "price": 99,
+        "details": "This ticket is for verified founders. Get access to all interactive sessions for the July 8&9 event including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership. Must be a valid founder, co-founder, or c-suite employee of your company."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "header": ["TC", "Sessions", "Mobility", "2021"],
+    "date": "June 9",
+    "title": "Founder & Entrepreneur Bootcamp",
+    "subtitle": "Explore inclusive hiring, access to funding for Black people, Latinos, Latinas and Indigenous people, and workplace tools to foster inclusion and belonging. We’ll also examine the experiences of gig workers and formerly incarcerated people who are often left out of Silicon Valley’s wealth cycle. Rounding out the program will be a discussion about the role of venture capital in creating a more inclusive tech ecosystem.",
+    "title1": "Fireside Chats and Panel Discussions",
+    "subtitle1": "TechCrunch's editors will explore inclusive hiring, the gig worker experience, the justice system and more in a series of interviews with key figures in the technology community.",
+    "avatar1": "https://techcrunch.com/wp-content/uploads/2020/08/Meeting5.jpg?w=400&h=220&crop=1.jpg",
+    "title2": "Q&A with the experts during breakout sessions",
+    "subtitle2": "Dozens of breakout sessions will be led by deeply credentialed experts followed by engaged Q&A. This version of the event will cover startup disciplines including fundraising, go-to-market strategies, term sheet construction, growth tactics, interacting with the press and more.",
+    "avatar2": "https://techcrunch.com/wp-content/uploads/2020/03/OTR-crowd-with-raised-hands-500px-square.jpg?w=400&h=220&crop=1",
+    "news": {
+      "title": "Learn how to creatively navigate remote fundraising from top investors",
+      "subtitle": "As the COVID-19 era drags on, first-time founders need to find new ways to raise capital needed to keep startups offensive (and defense). Luckily, a trio of investors from top venture capital firms...",
+      "avatar": "https://techcrunch.com/wp-content/uploads/2020/06/TC-Early-Stage-Graphi.png?w=430&h=230&crop=1",
+      "author": "Natasha Mascarenhas",
+      "time": "12:15 AM GMT+5:30•February 3, 2021"
+    },
+    "speakers": [
+      {
+        "name": "Naj Austin",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/y28p0rvucoeodfe9e7as.png?w=200&h=200&crop=1",
+        "post": "Founder &CEO, Somewhere Good, Ethels Club"
+      },
+      {
+        "name": "Cynthia L. Bennett",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/vqcljrua5fpqntrewfk1.jpg?w=200&h=200&crop=1",
+        "post": "Postdoctoral Researcher, Carnegie Mellon University Human-Computer Interaction Institute"
+      },
+      {
+        "name": "Parul Koul",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/dniavtmdxpc3p9fkun8j.jpg?w=200&h=200&crop=1",
+        "post": "Software Engineer, Google"
+      },
+      {
+        "name": "Christian Smalls",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/esbvexv3l08dqmtgcakl.jpg?w=200&h=200&crop=1",
+        "post": "Founder, The Congress of Essential Workers"
+      },
+      {
+        "name": "Jessica E. Martinez",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/nqltfrnkkn4wluk1dlhu.jpg?w=200&h=200&crop=1",
+        "post": "Co-Executive Director, National Institute for Occupational Safety and Health"
+      }
+    ],
+    "tickets": [
+      {
+        "title": "Founder Ticket - July Event",
+        "price": 199,
+        "details": "This ticket is for verified founders. Get access to all interactive sessions for the July 8&9 event including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership. Must be a valid founder, co-founder, or c-suite employee of your company."
+      },
+      {
+        "title": "Innovator Ticket - July Event",
+        "price": 299,
+        "details": "This ticket is for investors, and startup enthusiasts. Get access to all interactive sessions for the July 8&9 event including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership."
+      },
+      {
+        "title": "Founder Ticket - DUAL Event",
+        "price": 699,
+        "details": "This ticket is for verified founders. Get access to all interactive sessions for BOTH the April 1&2 and July 8&9 events including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership. Must be a valid founder, co-founder, or c-suite employee of your company."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "header": ["Early Stage", "Marketing", "&", "Fundraising"],
+    "date": "June 9",
+    "title": "Impactful founder lessons",
+    "subtitle": "Explore inclusive hiring, access to funding for Black people, Latinos, Latinas and Indigenous people, and workplace tools to foster inclusion and belonging. We’ll also examine the experiences of gig workers and formerly incarcerated people who are often left out of Silicon Valley’s wealth cycle. Rounding out the program will be a discussion about the role of venture capital in creating a more inclusive tech ecosystem.",
+    "title1": "Fireside Chats and Panel Discussions",
+    "subtitle1": "TechCrunch's editors will explore inclusive hiring, the gig worker experience, the justice system and more in a series of interviews with key figures in the technology community.",
+    "avatar1": "https://techcrunch.com/wp-content/uploads/2019/11/GettyImages-1079872594.jpg?w=400&h=220&crop=1.jpg",
+    "title2": "Q&A with the experts during breakout sessions",
+    "subtitle2": "Dozens of breakout sessions will be led by deeply credentialed experts followed by engaged Q&A. This version of the event will cover startup disciplines including fundraising, go-to-market strategies, term sheet construction, growth tactics, interacting with the press and more.",
+    "avatar2": "https://techcrunch.com/wp-content/uploads/2020/03/OTR-crowd-with-raised-hands-500px-square.jpg?w=400&h=220&crop=1",
+    "news": {
+      "title": "Learn how to creatively navigate remote fundraising from top investors",
+      "subtitle": "As the COVID-19 era drags on, first-time founders need to find new ways to raise capital needed to keep startups offensive (and defense). Luckily, a trio of investors from top venture capital firms...",
+      "avatar": "https://techcrunch.com/wp-content/uploads/2021/02/justice-speaker-brackeen-thomas-scholz.jpg?w=430&h=230&crop=1",
+      "author": "Natasha Mascarenhas",
+      "time": "12:15 AM GMT+5:30•February 3, 2021"
+    },
+    "speakers": [
+      {
+        "name": "Naj Austin",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/y28p0rvucoeodfe9e7as.png?w=200&h=200&crop=1",
+        "post": "Founder &CEO, Somewhere Good, Ethels Club"
+      },
+      {
+        "name": "Cynthia L. Bennett",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/vqcljrua5fpqntrewfk1.jpg?w=200&h=200&crop=1",
+        "post": "Postdoctoral Researcher, Carnegie Mellon University Human-Computer Interaction Institute"
+      },
+      {
+        "name": "Parul Koul",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/dniavtmdxpc3p9fkun8j.jpg?w=200&h=200&crop=1",
+        "post": "Software Engineer, Google"
+      },
+      {
+        "name": "Christian Smalls",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/esbvexv3l08dqmtgcakl.jpg?w=200&h=200&crop=1",
+        "post": "Founder, The Congress of Essential Workers"
+      },
+      {
+        "name": "Jessica E. Martinez",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/nqltfrnkkn4wluk1dlhu.jpg?w=200&h=200&crop=1",
+        "post": "Co-Executive Director, National Institute for Occupational Safety and Health"
+      },
+      {
+        "name": "Clarissa Redwine",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/jtrpfezfxo3l1ho085ng.jpg?w=200&h=200&crop=1",
+        "post": "Design & Technology Outreach Lead, Kickstarter"
+      }
+    ],
+    "tickets": [
+      {
+        "title": "Founder Ticket - DUAL Event",
+        "price": 399,
+        "details": "This ticket is for verified founders. Get access to all interactive sessions for BOTH the April 1&2 and July 8&9 events including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership. Must be a valid founder, co-founder, or c-suite employee of your company."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "header": ["TC", "Disrupt", "2021"],
+    "date": "Mar 3",
+    "title": "Where tomorrow’s headline makers take the stage today",
+    "subtitle": "Explore inclusive hiring, access to funding for Black people, Latinos, Latinas and Indigenous people, and workplace tools to foster inclusion and belonging. We’ll also examine the experiences of gig workers and formerly incarcerated people who are often left out of Silicon Valley’s wealth cycle. Rounding out the program will be a discussion about the role of venture capital in creating a more inclusive tech ecosystem.",
+    "title1": "Fireside Chats and Panel Discussions",
+    "subtitle1": "TechCrunch's editors will explore inclusive hiring, the gig worker experience, the justice system and more in a series of interviews with key figures in the technology community.",
+    "avatar1": "https://techcrunch.com/wp-content/uploads/2020/06/48844699672_f9cf52b345_k.jpg?w=400&h=220&crop=1.jpg",
+    "title2": "Q&A with the experts during breakout sessions",
+    "subtitle2": "Dozens of breakout sessions will be led by deeply credentialed experts followed by engaged Q&A. This version of the event will cover startup disciplines including fundraising, go-to-market strategies, term sheet construction, growth tactics, interacting with the press and more.",
+    "avatar2": "https://techcrunch.com/wp-content/uploads/2016/12/gettyimages-554391909.jpg?w=400&h=220&crop=1",
+    "news": {
+      "title": "Learn how to creatively navigate remote fundraising from top investors",
+      "subtitle": "As the COVID-19 era drags on, first-time founders need to find new ways to raise capital needed to keep startups offensive (and defense). Luckily, a trio of investors from top venture capital firms...",
+      "avatar": "https://techcrunch.com/wp-content/uploads/2021/02/justice-speaker-brackeen-thomas-scholz.jpg?w=430&h=230&crop=1",
+      "author": "Natasha Mascarenhas",
+      "time": "12:15 AM GMT+5:30•February 3, 2021"
+    },
+    "speakers": [
+      {
+        "name": "Naj Austin",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/y28p0rvucoeodfe9e7as.png?w=200&h=200&crop=1",
+        "post": "Founder &CEO, Somewhere Good, Ethels Club"
+      },
+      {
+        "name": "Cynthia L. Bennett",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/vqcljrua5fpqntrewfk1.jpg?w=200&h=200&crop=1",
+        "post": "Postdoctoral Researcher, Carnegie Mellon University Human-Computer Interaction Institute"
+      },
+      {
+        "name": "Parul Koul",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/dniavtmdxpc3p9fkun8j.jpg?w=200&h=200&crop=1",
+        "post": "Software Engineer, Google"
+      },
+      {
+        "name": "Christian Smalls",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/esbvexv3l08dqmtgcakl.jpg?w=200&h=200&crop=1",
+        "post": "Founder, The Congress of Essential Workers"
+      },
+      {
+        "name": "Jessica E. Martinez",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/nqltfrnkkn4wluk1dlhu.jpg?w=200&h=200&crop=1",
+        "post": "Co-Executive Director, National Institute for Occupational Safety and Health"
+      },
+      {
+        "name": "Clarissa Redwine",
+        "avatar": "https://techcrunch.com/wp-content/uploads/2021/01/jtrpfezfxo3l1ho085ng.jpg?w=200&h=200&crop=1",
+        "post": "Design & Technology Outreach Lead, Kickstarter"
+      }
+    ],
+    "tickets": [
+      {
+        "title": "Founder Ticket - July Event",
+        "price": 199,
+        "details": "This ticket is for verified founders. Get access to all interactive sessions for the July 8&9 event including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership. Must be a valid founder, co-founder, or c-suite employee of your company."
+      },
+      {
+        "title": "Innovator Ticket - July Event",
+        "price": 299,
+        "details": "This ticket is for investors, and startup enthusiasts. Get access to all interactive sessions for the July 8&9 event including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership."
+      },
+      {
+        "title": "Founder Ticket - DUAL Event",
+        "price": 399,
         "details": "This ticket is for verified founders. Get access to all interactive sessions for BOTH the April 1&2 and July 8&9 events including videos on demand and the networking platform, CrunchMatch, along with a complimentary annual Extra Crunch membership. Must be a valid founder, co-founder, or c-suite employee of your company."
       }
     ]

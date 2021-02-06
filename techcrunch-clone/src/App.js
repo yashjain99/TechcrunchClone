@@ -4,8 +4,8 @@ import Routes from "./Routes/Routes";
 function App() {
   return (
     <div>
-      <Navbar/>
-      <Routes /> 
+      <Navbar />
+      <Routes />
     </div>
   );
 }

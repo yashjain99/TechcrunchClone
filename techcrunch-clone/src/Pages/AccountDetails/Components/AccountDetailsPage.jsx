@@ -8,12 +8,7 @@ import { useParams, useHistory, Redirect } from "react-router-dom";
 import { Loader } from "../../Homepage/Components/Loader";
 import SideBar from "../../SideBar/Components/SideBar";
 import { getAccountDetails } from "../Redux/action";
-import {
-  Box,
-  Container,
-  Grid,
-  makeStyles
-} from "@material-ui/core";
+import { Box, Container, Grid, makeStyles } from "@material-ui/core";
 import { logoutUser } from "../../Login/redux/action";
 import FooterPage from "../../Footer/Components/FooterPage";
 import { getNewsHeadlines } from "../../Homepage/Redux/action";
@@ -33,25 +28,25 @@ const Wrapper = styled.div`
 
 const useStyles = makeStyles({
   container: {
-      display: "flex",
-      // flexDirection: "row",
-      justifyContent: "start",
-      marginLeft: "0px",
-      marginTop: "20px",
-      width: "100%"
-  }
-})
+    display: "flex",
+    // flexDirection: "row",
+    justifyContent: "start",
+    marginLeft: "0px",
+    marginTop: "20px",
+    width: "100%",
+  },
+});
 
 const AccountDetailsPage = () => {
   const [bool1, setBool1] = useState(true);
   const [bool2, setBool2] = useState(false);
   const [bool3, setBool3] = useState(false);
   const [bool4, setBool4] = useState(false);
-  
+
   const [animatedLoader, setAnimatedLoader] = useState(true);
-  const userData = useSelector(state => state.account.userData);
-  const isAuth = useSelector(state => state.login.isAuth);
-  const newsData = useSelector(state => state.home.newsHeadlines);
+  const userData = useSelector((state) => state.account.userData);
+  const isAuth = useSelector((state) => state.login.isAuth);
+  const newsData = useSelector((state) => state.home.newsHeadlines);
 
   const classes = useStyles();
 
@@ -100,118 +95,147 @@ const AccountDetailsPage = () => {
   else style4.display = "none";
 
   const handleLogout = () => {
-    dispatch(logoutUser())
-  }
+    dispatch(logoutUser());
+  };
 
   const redirectToNews = (id) => {
-    history.push(`/news/${id}`)
-  }
+    history.push(`/news/${id}`);
+  };
 
-  let userCommentsData = []
+  let userCommentsData = [];
   let flag = false;
 
-  newsData.map((item) => { item.comments.map((item) => {
-    if(item.email == userData.email) {
-      flag = true;
-      return
+  newsData.map((item) => {
+    item.comments.map((item) => {
+      if (item.email == userData.email) {
+        flag = true;
+        return;
+      } else {
+        flag = false;
+      }
+    });
+    if (flag) {
+      userCommentsData.push(item);
     }
-    else {
-      flag = false;
-    }
-  })
-  if(flag) {
-    userCommentsData.push(item)
-  }
-  flag=false;
-})
+    flag = false;
+  });
 
-console.log(userCommentsData);
-  
+  console.log(userCommentsData);
+
   useEffect(() => {
     setTimeout(() => {
-        setAnimatedLoader(false)
-    },1500)
+      setAnimatedLoader(false);
+    }, 1500);
 
     dispatch(getAccountDetails(id));
     dispatch(getNewsHeadlines());
-
-},[])
-console.log(userData.newsLetters)
+  }, []);
+  console.log(userData.newsLetters);
   return userData && isAuth ? (
-    <Container maxWidth = "xl" className = { classes.container }>
+    <Container maxWidth="xl" className={classes.container}>
       <Box>
-          <SideBar />
+        <SideBar />
       </Box>
-      <Box style = {{display: "flex", flexDirection: "column"}} >
-          {
-          animatedLoader ? (
-                  <Loader />
-              ) : (
-                  <Wrapper>
-                    <h1 style={{ color: "green" }}>
-                      {
-                        `Hi, ${userData.firstname} ${userData.lastname}`
-                      }
-                    </h1>
-                    <br/>
-                    <AccountCircleRoundedIcon style={{ fontSize: "100px" }} />
-                    <br/>
-                    <br/>
-                    <div className="password" style={{ color: "#00a562" }}>
-                      Change Password
-                      <LockIcon />
-                    </div>
-                    <div className="password" style={{ color: "#00a562" }}>
-                      {" "}
-                      Edit Account <EditOutlinedIcon />
-                    </div>
-                    <br/>
-                    <h3>Account Details</h3>
-                    <hr />
-                    <div style={{ display: "flex", fontSize: "18px"}}>
-                      <div style={{ color: "#999", width: "120px" }}>Name</div>
-                      <div style={{ color: "#000000", fontWeight: "900"}}>
-                        {
-                          `${userData.firstname} ${userData.lastname}`
-                        }
-                      </div>
-                    </div>
-                    <div style={{ display: "flex", fontSize: "18px" }}>
-                      <div style={{ color: "#999", width: "120px" }}>
-                        Email
-                      </div>
-                      <div style={{ color: "#00a562" }}>
-                        {userData.email}
-                      </div>
-                    </div>
-                    <br/>
-                    <h3> Subscription Details </h3>
-                    <br/>
-                    <div style = {{display: "flex", justifyContent: "space-around"}} >
-                      <button onClick={handleClick1} style={{height: "50px", width: "120px", backgroundColor: "lightgrey", outline: "none"  }}>
-                        Newsletter
-                      </button>
-                      <button onClick={handleClick2} style={{height: "50px", width: "120px", backgroundColor: "lightgrey", outline: "none"  }}>
-                        Events Booked
-                      </button>
-                      <button onClick={handleClick3} style={{height: "50px", width: "120px", backgroundColor: "lightgrey", outline: "none"  }}>
-                        User Activity
-                      </button>
-                      <button onClick={handleClick4} style={{height: "50px", width: "120px", backgroundColor: "lightgrey", outline: "none"  }}>
-                        Support
-                      </button>
-                    </div>
-                    <div style = {{ fontSize: "18px", height: "300px", width: "700px", margin: "13px 0", border: "1px solid #03d206", padding: "15px"}} >
-                      {
-                        userData.newsLetters?.map((item, index) => {
-                          return(
-                            <div key = {item.id} style = {style1} >
-                              {`${index + 1} ${item.title}`}
-                            </div>
-                          )
-                        })
-                      }
-                      {/* {
+      <Box style={{ display: "flex", flexDirection: "column" }}>
+        {animatedLoader ? (
+          <Loader />
+        ) : (
+          <Wrapper>
+            <h1 style={{ color: "green" }}>
+              {`Hi, ${userData.firstname} ${userData.lastname}`}
+            </h1>
+            <br />
+            <AccountCircleRoundedIcon style={{ fontSize: "100px" }} />
+            <br />
+            <br />
+            <div className="password" style={{ color: "#00a562" }}>
+              Change Password
+              <LockIcon />
+            </div>
+            <div className="password" style={{ color: "#00a562" }}>
+              {" "}
+              Edit Account <EditOutlinedIcon />
+            </div>
+            <br />
+            <h3>Account Details</h3>
+            <hr />
+            <div style={{ display: "flex", fontSize: "18px" }}>
+              <div style={{ color: "#999", width: "120px" }}>Name</div>
+              <div style={{ color: "#000000", fontWeight: "900" }}>
+                {`${userData.firstname} ${userData.lastname}`}
+              </div>
+            </div>
+            <div style={{ display: "flex", fontSize: "18px" }}>
+              <div style={{ color: "#999", width: "120px" }}>Email</div>
+              <div style={{ color: "#00a562" }}>{userData.email}</div>
+            </div>
+            <br />
+            <h3> Subscription Details </h3>
+            <br />
+            <div style={{ display: "flex", justifyContent: "space-around" }}>
+              <button
+                onClick={handleClick1}
+                style={{
+                  height: "50px",
+                  width: "120px",
+                  backgroundColor: "lightgrey",
+                  outline: "none",
+                }}
+              >
+                Newsletter
+              </button>
+              <button
+                onClick={handleClick2}
+                style={{
+                  height: "50px",
+                  width: "120px",
+                  backgroundColor: "lightgrey",
+                  outline: "none",
+                }}
+              >
+                Events Booked
+              </button>
+              <button
+                onClick={handleClick3}
+                style={{
+                  height: "50px",
+                  width: "120px",
+                  backgroundColor: "lightgrey",
+                  outline: "none",
+                }}
+              >
+                User Activity
+              </button>
+              <button
+                onClick={handleClick4}
+                style={{
+                  height: "50px",
+                  width: "120px",
+                  backgroundColor: "lightgrey",
+                  outline: "none",
+                }}
+              >
+                Support
+              </button>
+            </div>
+            <div
+              style={{
+                fontSize: "18px",
+                height: "300px",
+                width: "700px",
+                margin: "13px 0",
+                border: "1px solid #03d206",
+                padding: "15px",
+              }}
+            >
+              {userData.newsLetters?.map((item, index) => {
+                return (
+                  <div key={item.id} style={style1}>
+                    {`${index + 1} ${item.title}`}
+                  </div>
+                );
+              })}
+              {/* {
                         userData.events?.map((item, index) => {
                           return(
                             <div key = {item.id} style = {style2} >
@@ -220,40 +244,56 @@ console.log(userData.newsLetters)
                           )
                         })
                       } */}
-                      {
-                        userCommentsData?.map((item, index) => {
-                          return(
-                            <div key = {item.id} style = {style3} onClick = {() => redirectToNews(item.id)} >
-                              {`${index + 1} ${item.title}`}
-                            </div>
-                          )
-                        })
-                      }
-                      <div style = {style4} >
-                        <div style = {{fontSize: "20px"}}><b>Customer Support</b></div>
-                        <br/>
-                        <div>
-                          For information on frequently asked questions, please visit our <a href = "">Help Center</a>.
-                        </div>
-                        <br/>
-                        <div>
-                          To contact our customer support team directly, please send an email to <a href = "">extracrunch@techcrunch.com</a>.
-                        </div>
-                        <br/>
-                        <div>
-                          Please visit our <a href = "">feedback forum</a> to let us know how we can improve your Extra Crunch experience.
-                        </div>
-                      </div>
-                    </div>
-                    <button style={{ float: "right", height: "50px", width: "120px", backgroundColor: "lightgrey"}} onClick = { handleLogout } >
-                      Logout ❘➜
-                    </button>
-                    <FooterPage />
-                  </Wrapper>
-                )
-              }
-          </Box>
-      </Container>
-  ) : ( <Redirect to = "/" /> )
-}
+              {userCommentsData?.map((item, index) => {
+                return (
+                  <div
+                    key={item.id}
+                    style={style3}
+                    onClick={() => redirectToNews(item.id)}
+                  >
+                    {`${index + 1} ${item.title}`}
+                  </div>
+                );
+              })}
+              <div style={style4}>
+                <div style={{ fontSize: "20px" }}>
+                  <b>Customer Support</b>
+                </div>
+                <br />
+                <div>
+                  For information on frequently asked questions, please visit
+                  our <a href="">Help Center</a>.
+                </div>
+                <br />
+                <div>
+                  To contact our customer support team directly, please send an
+                  email to <a href="">extracrunch@techcrunch.com</a>.
+                </div>
+                <br />
+                <div>
+                  Please visit our <a href="">feedback forum</a> to let us know
+                  how we can improve your Extra Crunch experience.
+                </div>
+              </div>
+            </div>
+            <button
+              style={{
+                float: "right",
+                height: "50px",
+                width: "120px",
+                backgroundColor: "lightgrey",
+              }}
+              onClick={handleLogout}
+            >
+              Logout ❘➜
+            </button>
+            <FooterPage />
+          </Wrapper>
+        )}
+      </Box>
+    </Container>
+  ) : (
+    <Redirect to="/" />
+  );
+};
 export default AccountDetailsPage;

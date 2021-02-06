@@ -1,33 +1,33 @@
 import {
-  FETCH_ACCOUNT_DETAILS_REQUEST,
-  FETCH_ACCOUNT_DETAILS_SUCCESS,
-  FETCH_ACCOUNT_DETAILS_FAILURE,
+  FETCH_EVENTS_REQUEST,
+  FETCH_EVENTS_SUCCESS,
+  FETCH_EVENTS_FAILURE,
 } from "./actionTypes";
 
 const initState = {
+  events: [],
   isLoading: false,
-  userData: [],
   error: false,
 };
 
-export const accountReducer = (state = initState, { type, payload }) => {
-  // console.log(type, payload)
+export const mainEventsReducer = (state = initState, { type, payload }) => {
+  //   console.log(type, payload);
 
   switch (type) {
-    case FETCH_ACCOUNT_DETAILS_REQUEST:
+    case FETCH_EVENTS_REQUEST:
       return {
         ...state,
         isLoading: true,
         error: false,
       };
-    case FETCH_ACCOUNT_DETAILS_SUCCESS:
+    case FETCH_EVENTS_SUCCESS:
       return {
         ...state,
         isLoading: false,
         error: false,
-        userData: payload,
+        events: payload,
       };
-    case FETCH_ACCOUNT_DETAILS_FAILURE:
+    case FETCH_EVENTS_FAILURE:
       return {
         ...state,
         isLoading: false,
