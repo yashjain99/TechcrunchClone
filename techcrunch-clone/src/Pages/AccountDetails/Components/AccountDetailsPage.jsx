@@ -211,7 +211,7 @@ const AccountDetailsPage = () => {
 
     dispatch(getAccountDetails(id));
     dispatch(getNewsHeadlines());
-  }, []);
+  }, [userData]);
   console.log(userData.newsLetters);
   return userData && isAuth ? (
     <Container maxWidth="xl" className={classes.container}>
@@ -292,7 +292,14 @@ const AccountDetailsPage = () => {
                           userData.eventsBooked?.map((item, index) => {
                             return(
                               <div key = {item.id} style = {style2} className = "password" >
-                                <b>{index + 1 + "."}</b> {item.title}  {item.price} <hr/>
+                                <div style = {{display:"flex", justifyContent: "space-between"}}>
+                                <div>
+                                  <b>{index + 1 + "."}</b> {item.title}
+                                </div>
+                                <div>
+                                  $ {item.price} <hr/>
+                                </div>
+                                </div>
                               </div>
                             )
                           })
