@@ -163,7 +163,7 @@ export default function NavbarDrawer({ open, handleDrawerClose }) {
               style={{
                 color: "gray",
                 textDecoration: "none",
-                fontSize: "18px",
+                fontSize: "18px"
               }}
             >
               Login

@@ -2,6 +2,9 @@
   color: white;
   /* height: 600px; */
   background-image: url("https://cdn.wallpapersafari.com/46/30/ObEGSN.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   text-align: left;
   margin-left: 15px;
   font-weight: bolder;
@@ -29,6 +32,8 @@
   max-width: 240px;
   font-size: 18px;
   text-align: initial;
+  display: "flex";
+  flex-direction: column;
 }
 .btn {
   color: white;

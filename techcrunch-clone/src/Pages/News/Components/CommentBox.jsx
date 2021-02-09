@@ -161,15 +161,16 @@ export const CommentBox = ({ data }) => {
           <div onClick={() => setOpen(true)}>Add a comment... </div>
         ) : (
           <>
-            <p>{username}</p>
+            <p style = {{fontWeight: "900", fontSize: "20px"}} >{username.toUpperCase()}</p>
             <input
               type="text"
               value={commentText}
+              style = {{height: "50px"}}
               onChange={(e) => setCommentText(e.target.value)}
               placeholder="Add a comment..."
             />
 
-            <button onClick={handleAddComment}>send</button>
+            <button style = {{height: "40px"}} onClick={handleAddComment}>SEND</button>
           </>
         )}
       </Body>
@@ -192,7 +193,7 @@ export const CommentBox = ({ data }) => {
                     <MoreVertIcon />
                   </IconButton>
                 }
-                title={item.username}
+                title={item.username.toUpperCase()}
                 subheader={item.comment}
               />
 

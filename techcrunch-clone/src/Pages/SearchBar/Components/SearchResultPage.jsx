@@ -71,7 +71,9 @@ export function SearchResultPage() {
             <Box style = {{marginTop: "10px"}} >
                 {
                     animatedLoader ? (
-                        <Loader />
+                        <div style = {{margin: "150px 0 0 -650px"}}>
+                            <Loader />
+                        </div>
                     ) : (
                         <Box>
                             <Grid container justify = "center" >

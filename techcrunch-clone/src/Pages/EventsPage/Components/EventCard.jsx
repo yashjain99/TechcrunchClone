@@ -26,7 +26,7 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     height: "120px",
-    justifyContent: "space-around",
+    justifyContent: "space-around"
   },
   title: {
     color: "white",

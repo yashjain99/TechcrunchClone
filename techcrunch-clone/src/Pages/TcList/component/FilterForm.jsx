@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styles from "./style.module.css";
 import { useDispatch } from "react-redux";
-
 import { getTcListData } from "../Redux/action";
+
 const FilterForm = (props) => {
   const [vertical, setVertical] = useState("");
   const [roundType, setRoundType] = useState("");

@@ -28,16 +28,16 @@ const useStyles = makeStyles((theme) => ({
     background: "transparent"
   },
   menuButton: {
-      color: "green",
-      outline: "none",
-      border: 0,
-      cursor:"pointer",
+    color: "green",
+    outline: "none",
+    border: 0,
+    cursor:"pointer",
     position: 'absolute',
     right: 25,
     top : 5
   },
   img:{
-      width : 70,
+      height : 70,
       cursor:"pointer"
   }
 }));

@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
   },
   gridList: {
     flexWrap: "nowrap",
-    transform: "translateZ(0)",
+    transform: "translateZ(0)"
   },
   large: {
     width: theme.spacing(12),
@@ -81,7 +81,8 @@ const useStyles = makeStyles((theme) => ({
     // marginTop: "20px",
     // marginRight: "310px",
     maxWidth: "890px",
-  },
+    marginTop: "-100px"
+  }
 }));
 
 export const EventsPage = (props) => {
@@ -249,7 +250,7 @@ export const EventsPage = (props) => {
       <GridList className={classes.gridList} cols={2.9}>
         {item &&
           item.speakers.map((el) => (
-            <div className={styles.speakers}>
+            <div style = {{height: "220px"}} >
               {/* <img src={el.avatar} style={{ borderRadius: "50%", width: "90px" }} /> */}
               <Avatar src={el.avatar} className={classes.large} />
               <div>
@@ -278,15 +279,17 @@ export const EventsPage = (props) => {
             <div className={styles.tickets}>
               <h3> {el.title} </h3>
               <h1>${el.price} </h1>
-              <div>{el.details} </div>
-              <Button
-                variant="contained"
-                className={classes.btn}
-                style={{ margin: "10px 0 0 30px" }}
-                onClick={() => handlePayment(el.price)}
-              >
-                Buy
-              </Button>
+              <div style = {{height: "400px"}}>{el.details} </div>
+              <div style = {{height: "50px", marginBottom: "20px"}}>
+                <Button
+                  variant="contained"
+                  className={classes.btn}
+                  style={{ margin: "10px 0 0 30px"}}
+                  onClick={() => handlePayment(el.price)}
+                >
+                  Buy
+                </Button>
+              </div>
             </div>
           ))}
       </div>
