@@ -1,6 +1,10 @@
 # TechcrunchClone
-* git clone https://github.com/yashjain99/TechcrunchClone.git
-* npm install
+
+```
+git clone https://github.com/yashjain99/TechcrunchClone.git
+npm install
+npm run start
+```
 
 # Screenshots
 
