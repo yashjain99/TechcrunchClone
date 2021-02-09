@@ -190,13 +190,16 @@ export const CommentBox = ({ data }) => {
                     aria-label="settings"
                     onClick={handleOpenAnchorEl}
                   >
-                    <MoreVertIcon />
+                  {
+                    item.email === user.email ? (
+                      <MoreVertIcon />
+                    ) : ""
+                  }
                   </IconButton>
                 }
                 title={item.username.toUpperCase()}
                 subheader={item.comment}
               />
-
               <Menu
                 id="simple-menu"
                 anchorEl={anchorEl}
